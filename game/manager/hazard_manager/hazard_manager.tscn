@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/manager/hazard_manager/hazard_manager.gd" type="Script" id=1]
+
+[node name="HazardManager" type="Node2D"]
+script = ExtResource( 1 )

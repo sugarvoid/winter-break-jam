@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://game/platform/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/platform/static_platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/game.gd" type="Script" id=3]
 [ext_resource path="res://game/level/kill_zone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/platform/moving_platform.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -25,3 +26,6 @@ position = Vector2( 51, 62 )
 
 [node name="OffScreenPos" type="Position2D" parent="."]
 position = Vector2( -27, 25 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 5 )]
+position = Vector2( 126, 106 )
