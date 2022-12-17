@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		is_grounded = false
 	
 	if Input.is_action_just_pressed("jump"):
-		if better_is_on_floor():
+		if jumps == 0:
 			jumps += 1
 			velocity.y = -jump_strength
 		else:

@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "DangerObject",
+"language": "GDScript",
+"path": "res://game/danger_object/danger_object.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://game/player/player.gd"
 } ]
 _global_script_class_icons={
+"DangerObject": "",
 "Player": ""
 }
 
