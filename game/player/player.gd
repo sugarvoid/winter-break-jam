@@ -8,16 +8,16 @@ const UP_DIRECTION: Vector2 = Vector2.UP
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
 var velocity: Vector2 = Vector2.ZERO
-var speed: float =  300.0
-var acceleration: float = 0.3
+var speed: float =  200.0
+var acceleration: float = 0.2
 var friction: float = 1.0
-var gravity: float = 2500.0
+var gravity: float = 1500.0
 var horizontal_direction: int
 
 var jumps: int = 0
-var jump_strength: float =  500.0
+var jump_strength: float =  350.0
 var max_jumps: int = 2
-var extra_jump_strength: float = 400.0
+var extra_jump_strength: float = 280.0
 
 var is_dashing: bool = false
 var is_grounded: bool

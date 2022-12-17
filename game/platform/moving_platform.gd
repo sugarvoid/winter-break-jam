@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
@@ -11,5 +11,5 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta) -> void:
-	self.position += Vector2(12, -3) * delta
+	self.position += Vector2(20, -20) * delta
 	
