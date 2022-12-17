@@ -2,7 +2,7 @@ extends Node2D
 
 
 const p_IceSickle: PackedScene = preload("res://game/danger_object/ice_sickle/ice_sickle.tscn")
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	spawn_ice_sickle()
 
