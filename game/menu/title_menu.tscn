@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/menu/title_menu.gd" type="Script" id=1]
+[ext_resource path="res://game/font/Boxy-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -13,18 +17,23 @@ margin_top = -6.0
 margin_right = 66.0
 margin_bottom = 48.0
 rect_scale = Vector2( 3.4377, 2.81689 )
-color = Color( 0.105882, 0.172549, 0.282353, 1 )
+color = Color( 0.0313726, 0.101961, 0.219608, 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 73.0
+margin_left = 38.0
 margin_top = 31.0
-margin_right = 155.0
-margin_bottom = 45.0
+margin_right = 188.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Sickle Dodge"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 77.0
-margin_top = 100.0
-margin_right = 159.0
-margin_bottom = 114.0
+margin_left = 73.0
+margin_top = 102.0
+margin_right = 223.0
+margin_bottom = 120.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Press Space"

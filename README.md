@@ -4,6 +4,13 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 
 
 ## Credits
+### Programming
+-SugarVoid
+### Sprites
+-SugarVoid
+### Font
+- Boxy Bold by Clint Bellanger
+
 This game uses Godot Engine, available under the following license:
 
 Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur. 
