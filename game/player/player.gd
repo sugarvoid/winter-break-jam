@@ -3,6 +3,8 @@ extends KinematicBody2D
 
 signal fell_off_screen
 signal on_air_jump(effect, pos)
+signal is_dying
+signal on_death
 
 const UP_DIRECTION: Vector2 = Vector2.UP
 const p_JumpEffect: PackedScene = preload("res://game/player/jump_effect.tscn")
@@ -23,44 +25,52 @@ var extra_jump_strength: float = 230.0
 
 var is_dashing: bool = false
 var is_grounded: bool
+var is_alive: bool = true
 
+var hp: int = 1
+
+func _ready():
+	animated_sprite.play("default")
+	animated_sprite.connect("animation_finished", self, "_animation_finished")
 
 func _physics_process(delta: float) -> void:
-	self.horizontal_direction = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	
-	if better_is_on_floor(): 
-		if !is_grounded:
-			reset_jumps()
-		is_grounded = true
-	else: 
-		is_grounded = false
+	if self.is_alive:
+		self.horizontal_direction = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
+		
+		if better_is_on_floor(): 
+			if !is_grounded:
+				reset_jumps()
+			is_grounded = true
+		else: 
+			is_grounded = false
+		
+		if Input.is_action_just_pressed("jump"):
+			if jumps == 0:
+				jumps += 1
+				velocity.y = -jump_strength
+			else:
+				print('not on floor????')
+				if jumps >= 1 and jumps <= max_jumps:
+					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
+					$AnimationPlayer.play("flip")
+					velocity.y = -extra_jump_strength
+					jumps +=1
+		if Input.is_action_just_pressed("dash"):
+			print("...dash...")
 	
-	if Input.is_action_just_pressed("jump"):
-		if jumps == 0:
-			jumps += 1
-			velocity.y = -jump_strength
-		else:
-			print('not on floor????')
-			if jumps >= 1 and jumps <= max_jumps:
-				self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
-				$AnimationPlayer.play("flip")
-				velocity.y = -extra_jump_strength
-				jumps +=1
-	if Input.is_action_just_pressed("dash"):
-		print("...dash...")
-	
-	if self.horizontal_direction != 0: 
-		velocity.x = lerp(velocity.x, self.horizontal_direction * speed, acceleration)
-	elif self.horizontal_direction == 0: 
-		velocity.x = lerp(velocity.x, self.horizontal_direction * speed, friction)
-	
-	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity, UP_DIRECTION)
-	
-	if self.horizontal_direction > 0:
-		animated_sprite.flip_h = false
-	elif self.horizontal_direction < 0:
-		animated_sprite.flip_h = true
+		if self.horizontal_direction != 0: 
+			velocity.x = lerp(velocity.x, self.horizontal_direction * speed, acceleration)
+		elif self.horizontal_direction == 0: 
+			velocity.x = lerp(velocity.x, self.horizontal_direction * speed, friction)
+		
+		velocity.y += gravity * delta
+		velocity = move_and_slide(velocity, UP_DIRECTION)
+		
+		if self.horizontal_direction > 0:
+			animated_sprite.flip_h = false
+		elif self.horizontal_direction < 0:
+			animated_sprite.flip_h = true
 
 func better_is_on_floor() -> bool:
 	var arr: Array =[]
@@ -73,4 +83,23 @@ func reset_jumps() -> void:
 	self.jumps = 0
 
 func take_damage():
+	if self.hp == 0:
+		return
+	#$CollisionShape2D.set_deferred("disabled", true)
 	print("taking damage")
+	self.hp -= 1
+	if self.hp == 0:
+		self.is_alive = false
+		emit_signal("is_dying")
+		_play_death_animation()
+
+func _play_death_animation() -> void:
+	print('player is dead')
+	# Play animation
+	animated_sprite.play("dying")
+
+
+func _animation_finished():
+	if animated_sprite.animation == "dying":
+		emit_signal("on_death")
+		self.queue_free()

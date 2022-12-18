@@ -1,18 +1,20 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var child_checker: Timer = get_node("ChildChecker")
+onready var hazards: Node2D = get_node("Hazards")
+
 var child_speed: int = 100
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	for s in self.get_children():
+	child_checker.connect("timeout", self, "_check_for_children")
+	child_checker.start(2)
+	
+	for s in self.hazards.get_children():
 		s.speed = child_speed
+	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _check_for_children() -> void:
+	if self.hazards.get_child_count() == 0:
+		self.queue_free()
