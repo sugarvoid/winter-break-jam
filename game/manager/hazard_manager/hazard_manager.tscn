@@ -6,4 +6,10 @@
 script = ExtResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -15, 59 )
+position = Vector2( -20, 43 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( -20, 78 )
+
+[node name="Position2D3" type="Position2D" parent="."]
+position = Vector2( -21, 115 )

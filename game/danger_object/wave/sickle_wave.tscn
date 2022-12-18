@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://game/manager/hazard_manager/sickle_wave.gd" type="Script" id=2]
+[ext_resource path="res://game/danger_object/wave/sickle_wave.gd" type="Script" id=2]
 
 [node name="SickleWave" type="Node2D"]
 script = ExtResource( 2 )

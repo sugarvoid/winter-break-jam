@@ -4,15 +4,15 @@
 [ext_resource path="res://game/danger_object/ice_sickle/ice_sickle.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7, 2 )
+extents = Vector2( 4, 1 )
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
+"frames": [ SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -21,7 +21,6 @@ animations = [ {
 [node name="IceSickle" instance=ExtResource( 1 )]
 
 [node name="Hitbox" parent="." index="0"]
-position = Vector2( -1, 0 )
 shape = SubResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="1"]

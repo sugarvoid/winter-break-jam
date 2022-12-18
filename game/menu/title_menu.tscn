@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/menu/title_menu.gd" type="Script" id=1]
+
+[node name="TitleMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -6.0
+margin_right = 66.0
+margin_bottom = 48.0
+rect_scale = Vector2( 3.4377, 2.81689 )
+color = Color( 0.105882, 0.172549, 0.282353, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 73.0
+margin_top = 31.0
+margin_right = 155.0
+margin_bottom = 45.0
+text = "Sickle Dodge"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 77.0
+margin_top = 100.0
+margin_right = 159.0
+margin_bottom = 114.0
+text = "Press Space"
