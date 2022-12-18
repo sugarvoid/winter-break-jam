@@ -72,3 +72,5 @@ func better_is_on_floor() -> bool:
 func reset_jumps() -> void:
 	self.jumps = 0
 
+func take_damage():
+	print("taking damage")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/platform/static_platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=2]
@@ -7,9 +7,14 @@
 [ext_resource path="res://game/platform/moving_platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/manager/hazard_manager/hazard_manager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/effect_container.gd" type="Script" id=7]
+[ext_resource path="res://game/level/TEMP_background.png" type="Texture" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="TempBackground" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+centered = false
 
 [node name="StaticPlatform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 50, 117 )
@@ -39,3 +44,5 @@ motion/sync_to_physics = false
 
 [node name="EffectContainer" type="Node2D" parent="."]
 script = ExtResource( 7 )
+
+[node name="GameTimer" type="Timer" parent="."]
