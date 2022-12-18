@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/danger_object/danger_object.gd"
 }, {
+"base": "Node2D",
+"class": "EffectContainer",
+"language": "GDScript",
+"path": "res://game/effect_container.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "DangerObject": "",
+"EffectContainer": "",
 "Player": ""
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/platform/static_platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://game/level/kill_zone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/platform/moving_platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/manager/hazard_manager/hazard_manager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/effect_container.gd" type="Script" id=7]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -16,20 +17,25 @@ position = Vector2( 50, 117 )
 [node name="StaticPlatform2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 185, 116 )
 
+[node name="KillZone" parent="." instance=ExtResource( 4 )]
+position = Vector2( 121, 161 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 69, 67 )
-
-[node name="KillZone" parent="Player" instance=ExtResource( 4 )]
-position = Vector2( 52, 81 )
+collision_layer = 2
+collision_mask = 13
 
 [node name="PlayerSpawnPoint" type="Position2D" parent="."]
 position = Vector2( 51, 62 )
 
 [node name="OffScreenPos" type="Position2D" parent="."]
-position = Vector2( -27, 25 )
+position = Vector2( -34, 25 )
 
 [node name="MovingPlatform" parent="." instance=ExtResource( 5 )]
 position = Vector2( 126, 106 )
 motion/sync_to_physics = false
 
 [node name="HazardManager" parent="." instance=ExtResource( 6 )]
+
+[node name="EffectContainer" type="Node2D" parent="."]
+script = ExtResource( 7 )

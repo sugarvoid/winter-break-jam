@@ -2,22 +2,24 @@ class_name Player
 extends KinematicBody2D
 
 signal fell_off_screen
+signal on_air_jump(effect, pos)
 
 const UP_DIRECTION: Vector2 = Vector2.UP
+const p_JumpEffect: PackedScene = preload("res://game/player/jump_effect.tscn")
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
 var velocity: Vector2 = Vector2.ZERO
-var speed: float =  150.0
+var speed: float =  130.0
 var acceleration: float = 0.2
 var friction: float = 1.0
-var gravity: float = 1500.0
+var gravity: float = 1000.0
 var horizontal_direction: int
 
 var jumps: int = 0
-var jump_strength: float =  350.0
+var jump_strength: float =  300.0
 var max_jumps: int = 2
-var extra_jump_strength: float = 280.0
+var extra_jump_strength: float = 230.0
 
 var is_dashing: bool = false
 var is_grounded: bool
@@ -40,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			print('not on floor????')
 			if jumps >= 1 and jumps <= max_jumps:
+				self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
+				$AnimationPlayer.play("flip")
 				velocity.y = -extra_jump_strength
 				jumps +=1
 	if Input.is_action_just_pressed("dash"):
