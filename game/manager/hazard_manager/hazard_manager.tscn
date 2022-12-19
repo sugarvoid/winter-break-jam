@@ -12,7 +12,7 @@ position = Vector2( -20, 43 )
 position = Vector2( -20, 78 )
 
 [node name="SingleLeftPos" type="Position2D" parent="."]
-position = Vector2( -17, 115 )
+position = Vector2( -17, 112 )
 
 [node name="SingleRightPos" type="Position2D" parent="."]
 position = Vector2( 261, 93 )

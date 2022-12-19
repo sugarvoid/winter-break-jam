@@ -16,11 +16,11 @@ script = ExtResource( 3 )
 texture = ExtResource( 8 )
 centered = false
 
-[node name="StaticPlatform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 50, 117 )
+[node name="StaticPlatformLeft" parent="." instance=ExtResource( 1 )]
+position = Vector2( 50, 124 )
 
-[node name="StaticPlatform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 185, 116 )
+[node name="StaticPlatformRight" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 124 )
 
 [node name="KillZone" parent="." instance=ExtResource( 4 )]
 position = Vector2( 121, 161 )
@@ -31,7 +31,7 @@ collision_layer = 2
 collision_mask = 13
 
 [node name="PlayerSpawnPoint" type="Position2D" parent="."]
-position = Vector2( 51, 62 )
+position = Vector2( 50, 100 )
 
 [node name="OffScreenPos" type="Position2D" parent="."]
 position = Vector2( -34, 25 )
@@ -48,3 +48,5 @@ script = ExtResource( 7 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+
+[node name="StartDelay" type="Timer" parent="."]

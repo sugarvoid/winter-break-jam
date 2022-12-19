@@ -28,6 +28,7 @@ var extra_jump_strength: float = 230.0
 var is_dashing: bool = false
 var is_grounded: bool
 var is_alive: bool = true
+var is_on_ice: bool
 
 var hp: int = 1
 

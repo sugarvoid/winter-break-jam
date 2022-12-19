@@ -2,6 +2,8 @@
 
 My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-winter-bullet-hell-jam)
 
+The plan is to make a bullet hell game, with no randomness. 
+
 
 ## Credits
 ### Programming
@@ -9,7 +11,7 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 ### Sprites
 -SugarVoid
 ### Font
-- Boxy Bold by Clint Bellanger
+-Boxy Bold by Clint Bellanger
 
 This game uses Godot Engine, available under the following license:
 

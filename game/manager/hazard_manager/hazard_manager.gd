@@ -18,13 +18,14 @@ var left_timer: int = 5
 var right_timer: int = 8
 
 func _ready():
-	single_sickle_left_timer.start(self.left_timer)
-	single_sickle_right_timer.start(self.right_timer)
-	
 	single_sickle_left_timer.connect("timeout", self, "_on_left_timeout")
 	single_sickle_right_timer.connect("timeout", self, "_on_right_timeout")
 	
 	pass
+
+func start_timers() -> void:
+	single_sickle_left_timer.start(self.left_timer)
+	single_sickle_right_timer.start(self.right_timer)
 
 func _spawn_ice_sickle(pos: Vector2 = $Position2D.global_position, dir: int = 0, speed = 30) -> void:
 	var new_sickle: DangerObject = p_IceSickle.instance()
@@ -52,6 +53,8 @@ func spawn_hazard(sec: int) -> void:
 			_spawn_wave(p_SWTopLeft)
 		4:
 			_spawn_ice_sickle()
+		5:
+			_spawn_wave(p_SWTopRight)
 		6:
 			_spawn_ice_sickle($Position2D2.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
 			_spawn_ice_sickle($Position2D.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
