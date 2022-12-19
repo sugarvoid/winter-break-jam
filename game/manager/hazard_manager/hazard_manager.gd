@@ -1,6 +1,8 @@
 class_name HazardManager
 extends Node2D
 
+signal player_finished
+
 onready var single_sickle_left_timer: Timer = get_node("SickleLeft")
 onready var single_sickle_right_timer: Timer = get_node("SickleRight")
 
@@ -38,8 +40,9 @@ func reset_self() -> void:
 	single_sickle_left_timer.stop()
 	single_sickle_right_timer.stop()
 
-func _spawn_wave(wave: PackedScene) -> void:
-	var new_wave = wave.instance()
+func _spawn_wave(wave: PackedScene, speed: int = 100) -> void:
+	var new_wave: SickleWave = wave.instance()
+	new_wave.set_sickle_speed(speed)
 	self.call_deferred("add_child", new_wave)
 
 func _on_left_timeout() -> void:
@@ -54,17 +57,24 @@ func spawn_hazard(sec: int) -> void:
 	pass
 	match sec:
 		2, 10:
-			_spawn_wave(p_SWTopLeft)
+			_spawn_wave(p_SWTopLeft, 150)
 		4:
 			_spawn_ice_sickle()
 		5:
-			_spawn_wave(p_SWTopRight)
+			_spawn_wave(p_SWTopRight, 50)
 		6:
+			_spawn_wave(p_SWLeftTop, 80)
+		7:
 			_spawn_ice_sickle($Position2D2.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
 			_spawn_ice_sickle($Position2D.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
 		12:
-			_spawn_wave(p_SWTopLeft)
+			_spawn_wave(p_SWTopLeft, 200)
 		15:
-			_spawn_wave(p_SWLeftBottom)
+			_spawn_wave(p_SWLeftBottom, 180)
 		16:
-			_spawn_wave(p_SWLeftBottom)
+			_spawn_wave(p_SWLeftBottom, 175)
+		118:
+			# last ones
+			pass
+		120:
+			emit_signal("player_finished")

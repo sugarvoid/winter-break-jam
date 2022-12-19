@@ -4,20 +4,36 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 
 The plan is to make a bullet hell game, with no randomness. 
 
+## Goal :dart:
+- Dodge the ice sickles for 2 minutes.
+## Controls :joystick:
+|Key|Action|
+|:---:|:---:|
+|A|Move Left|
+|D|Move Right|
+|Space|Jump|
+
 ## ToDo
--Add Credits screen
--Add pause feature(maybe be)
--Quick restart after dying
+- Add visual for game over
+- Add Credits screen
+- Add pause feature(maybe be)
+- Quick restart after dying
 
 
 ## Credits
-### Programming
--SugarVoid
+### Programming :computer: 
+- SugarVoid
 ### Sprites
--SugarVoid
+- SugarVoid
 ### Font
--Boxy Bold by Clint Bellanger
+- Boxy Bold by Clint Bellanger
+### Music :musical_keyboard:
+- Snowy Cottage 8bit ver 2 by [TAD](https://www.youtube.com/c/Tadon) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Iced Village by [TAD](https://www.youtube.com/c/Tadon) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+
+</br>
+</br>
 This game uses Godot Engine, available under the following license:
 
 Copyright (c) 2007-2022 Juan Linietsky, Ariel Manzur. 

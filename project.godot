@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://game/player/player.gd"
+}, {
+"base": "Node2D",
+"class": "SickleWave",
+"language": "GDScript",
+"path": "res://game/danger_object/wave/sickle_wave.gd"
 } ]
 _global_script_class_icons={
 "DangerObject": "",
 "EffectContainer": "",
 "HazardManager": "",
 "Platform": "",
-"Player": ""
+"Player": "",
+"SickleWave": ""
 }
 
 [application]

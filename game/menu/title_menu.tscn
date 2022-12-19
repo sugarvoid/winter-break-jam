@@ -79,3 +79,5 @@ margin_top = 19.5251
 margin_right = 167.381
 margin_bottom = 119.525
 text = "Credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

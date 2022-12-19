@@ -42,6 +42,28 @@ script = ExtResource( 7 )
 
 [node name="GameTimer" type="Timer" parent="."]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 
+[node name="WinningSound" type="AudioStreamPlayer" parent="."]
+
 [node name="StartDelay" type="Timer" parent="."]
+
+[node name="OverLay" type="CanvasLayer" parent="."]
+
+[node name="LblRestart" type="Label" parent="OverLay"]
+visible = false
+margin_left = 89.0
+margin_top = 41.0
+margin_right = 140.0
+margin_bottom = 55.0
+text = "Press R "
+
+[node name="LblWin" type="Label" parent="OverLay"]
+visible = false
+margin_left = 90.0
+margin_top = 41.0
+margin_right = 142.0
+margin_bottom = 55.0
+text = "You Win"

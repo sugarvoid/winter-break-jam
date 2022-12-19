@@ -11,6 +11,7 @@ var is_credits_showing: bool = false
 
 func _ready():
 	_highlight_selected_option() 
+	$AudioStreamPlayer.play()
 
 func _input(event):
 	if !is_credits_showing:

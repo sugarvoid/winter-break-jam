@@ -20,9 +20,10 @@ func _ready():
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
+	$BackgroundMusic.play()
+	_hide_overlay_items()
 	self.is_game_over = false
 	self._spawn_player()
-	
 	self.static_platform_left.is_frozen = true
 	self.static_platform_right.is_frozen = true
 	self.start_delay_timer.start(START_DELAY)
@@ -30,6 +31,10 @@ func _set_up_new_game() -> void:
 
 func _spawn_player() -> void:
 	self.player.global_position = $PlayerSpawnPoint.global_position
+
+func _hide_overlay_items() -> void:
+	for c in $OverLay.get_children():
+		c.visible = false
 
 func _input(event):
 	if self.is_game_over:
@@ -54,7 +59,6 @@ func _remove_hazards() -> void:
 	self.is_game_over = true
 	self.hazard_manager.reset_self()
 
-
 func _connection_child_signals() -> void:
 	self.start_delay_timer.connect("timeout", self, "_start_level")
 	self.player.connect("fell_off_screen", self, "_respawn_player")
@@ -64,6 +68,7 @@ func _connection_child_signals() -> void:
 	self.player.connect("on_air_jump", self.effect_conatainer, "add_effect_to_screen")
 	self.gamer_timer.connect("timeout", self, "_tick")
 	self.gameover_sound.connect("finished", self, "_end_game")
+	self.hazard_manager.connect("player_finished", self, "_game_won")
 
 func _play_gameoever_sound() -> void:
 	gameover_sound.play()
@@ -72,3 +77,7 @@ func _end_game():
 	# Play gameover sound
 	self._remove_hazards()
 	print('gameover')
+
+func _game_won() -> void:
+	# play winning sound
+	print('You win!')
