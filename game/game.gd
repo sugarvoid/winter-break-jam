@@ -16,10 +16,11 @@ var seconds_in: int
 
 func _ready():
 	_connection_child_signals() 
-	_start_level()
+	
 	static_platform_left.is_frozen = true
 	static_platform_right.is_frozen = true
 	start_delay_timer.start(3)
+	_start_level()
 
 func _spawn_player() -> void:
 	pass
@@ -28,8 +29,9 @@ func _process(delta):
 	pass
 
 func _start_level() -> void:
-	self.gamer_timer.start(1)
-	self.hazard_manager.start_timers()
+	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
+		self.gamer_timer.start(1)
+		self.hazard_manager.start_timers()
 	
 
 func _respawn_player(_body: Node) -> void:
@@ -48,6 +50,7 @@ func _tick() -> void:
 func _remove_hazards() -> void:
 	self.is_game_over = true
 	self.call_deferred("remove_child", $HazardManager)# remove_child($HazardManager)
+	$HazardManager.queue_free()
 
 func _connection_child_signals() -> void:
 	self.start_delay_timer.connect("timeout", self, "_start_level")
@@ -60,4 +63,5 @@ func _connection_child_signals() -> void:
 	
 func _game_over():
 	# Play gameover sound
+	_remove_hazards()
 	print('gameover')

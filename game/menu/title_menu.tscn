@@ -28,12 +28,54 @@ custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Sickle Dodge"
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 73.0
-margin_top = 102.0
-margin_right = 223.0
-margin_bottom = 120.0
+[node name="Options" type="Control" parent="."]
+
+[node name="Label2" type="Label" parent="Options"]
+margin_left = 93.0
+margin_top = 83.0
+margin_right = 243.0
+margin_bottom = 101.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Press Space"
+text = "Play"
+
+[node name="Label3" type="Label" parent="Options"]
+margin_left = 86.0
+margin_top = 96.0
+margin_right = 236.0
+margin_bottom = 114.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Credits"
+
+[node name="Label4" type="Label" parent="Options"]
+margin_left = 94.0
+margin_top = 108.0
+margin_right = 244.0
+margin_bottom = 126.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+margin_right = 240.0
+margin_bottom = 136.0
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+margin_left = -8.0
+margin_top = -6.0
+margin_right = 66.0
+margin_bottom = 48.0
+rect_scale = Vector2( 3.4377, 2.81689 )
+color = Color( 0.0313726, 0.101961, 0.219608, 1 )
+
+[node name="Label" type="Label" parent="Credits/ColorRect"]
+margin_left = 13.381
+margin_top = 19.5251
+margin_right = 167.381
+margin_bottom = 119.525
+text = "Credits"

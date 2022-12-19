@@ -14,8 +14,8 @@ const p_SWTopRight: PackedScene = preload("res://game/danger_object/wave/sickle_
 const p_SWLeftTop: PackedScene = preload("res://game/danger_object/wave/sickle_wave_left_top.tscn")
 const p_SWLeftBottom: PackedScene = preload("res://game/danger_object/wave/sickle_wave_left_bottom.tscn")
 
-var left_timer: int = 5
-var right_timer: int = 8
+var left_timer: int = 2
+var right_timer: int = 1
 
 func _ready():
 	single_sickle_left_timer.connect("timeout", self, "_on_left_timeout")
