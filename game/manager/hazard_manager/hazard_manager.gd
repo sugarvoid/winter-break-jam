@@ -29,19 +29,19 @@ func start_timers() -> void:
 	single_sickle_left_timer.start(self.left_timer)
 	single_sickle_right_timer.start(self.right_timer)
 
-func _spawn_ice_sickle(pos: Vector2 = $Position2D.global_position, dir: int = 0, speed = 30) -> void:
+func _spawn_ice_sickle(spawn_pos: Vector2 = $Position2D.global_position, move_dir: int = 0, speed = 30) -> void:
 	var new_sickle: DangerObject = p_IceSickle.instance()
 	new_sickle.speed = speed
-	new_sickle.rotation_d = dir
-	new_sickle.global_position = pos
+	new_sickle.rotation_d = move_dir
+	new_sickle.global_position = spawn_pos
 	self.call_deferred("add_child", new_sickle)
 
 func reset_self() -> void:
 	single_sickle_left_timer.stop()
 	single_sickle_right_timer.stop()
 
-func _spawn_wave(wave: PackedScene, speed: int = 100) -> void:
-	var new_wave: SickleWave = wave.instance()
+func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
+	var new_wave: SickleWave = wave_type.instance()
 	new_wave.set_sickle_speed(speed)
 	self.call_deferred("add_child", new_wave)
 
