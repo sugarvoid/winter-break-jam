@@ -6,7 +6,6 @@ onready var hazards: Node2D = get_node("Hazards")
 
 var child_speed: int = 100
 
-
 func _ready():
 	child_checker.connect("timeout", self, "_check_for_children")
 	child_checker.start(2)

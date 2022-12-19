@@ -4,6 +4,11 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 
 The plan is to make a bullet hell game, with no randomness. 
 
+## ToDo
+-Add Credits screen
+-Add pause feature(maybe be)
+-Quick restart after dying
+
 
 ## Credits
 ### Programming

@@ -1,5 +1,6 @@
 extends Node2D
 
+### const p_Player: PackedScene = preload("res://game/player/player.tscn")
 
 onready var player: Player = get_node("Player")
 onready var kill_zone: Area2D = get_node("KillZone")
@@ -7,7 +8,7 @@ onready var effect_conatainer: EffectContainer = get_node("EffectContainer")
 onready var gamer_timer: Timer = get_node("GameTimer")
 onready var static_platform_left: Platform = get_node("StaticPlatformLeft")
 onready var static_platform_right: Platform = get_node("StaticPlatformRight")
-onready var hazard_manager = get_node("HazardManager")
+onready var hazard_manager: HazardManager = get_node("HazardManager")
 onready var start_delay_timer: Timer = get_node("StartDelay")
 
 
@@ -16,6 +17,11 @@ var seconds_in: int
 
 func _ready():
 	_connection_child_signals() 
+	_set_up_new_game()
+
+func _set_up_new_game() -> void:
+	self.is_game_over = false
+	_spawn_player()
 	
 	static_platform_left.is_frozen = true
 	static_platform_right.is_frozen = true
@@ -23,34 +29,36 @@ func _ready():
 	_start_level()
 
 func _spawn_player() -> void:
-	pass
+	self.player.global_position = $PlayerSpawnPoint.global_position
+
 
 func _process(delta):
 	pass
+
+func _input(event):
+	if self.is_game_over:
+		if event.is_action_released("restart"):
+			get_tree().change_scene("res://game/game.tscn")
+			#_set_up_new_game()
 
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
 		self.gamer_timer.start(1)
 		self.hazard_manager.start_timers()
-	
 
 func _respawn_player(_body: Node) -> void:
-#	if self.player.hp > 0:
-#		self.player.global_position = $PlayerSpawnPoint.global_position
-#		print("respawning player.")
-
 	_game_over()
 
 func _tick() -> void:
 	if !is_game_over:
 		seconds_in += 1
 		print(str('tick ', seconds_in))
-		$HazardManager.spawn_hazard(seconds_in)
+		self.hazard_manager.spawn_hazard(seconds_in)
 
 func _remove_hazards() -> void:
 	self.is_game_over = true
-	self.call_deferred("remove_child", $HazardManager)# remove_child($HazardManager)
-	$HazardManager.queue_free()
+	self.hazard_manager.reset_self()
+
 
 func _connection_child_signals() -> void:
 	self.start_delay_timer.connect("timeout", self, "_start_level")

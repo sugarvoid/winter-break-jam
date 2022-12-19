@@ -1,3 +1,4 @@
+class_name HazardManager
 extends Node2D
 
 onready var single_sickle_left_timer: Timer = get_node("SickleLeft")
@@ -20,8 +21,7 @@ var right_timer: int = 1
 func _ready():
 	single_sickle_left_timer.connect("timeout", self, "_on_left_timeout")
 	single_sickle_right_timer.connect("timeout", self, "_on_right_timeout")
-	
-	pass
+
 
 func start_timers() -> void:
 	single_sickle_left_timer.start(self.left_timer)
@@ -33,7 +33,11 @@ func _spawn_ice_sickle(pos: Vector2 = $Position2D.global_position, dir: int = 0,
 	new_sickle.rotation_d = dir
 	new_sickle.global_position = pos
 	self.call_deferred("add_child", new_sickle)
-	
+
+func reset_self() -> void:
+	single_sickle_left_timer.stop()
+	single_sickle_right_timer.stop()
+
 func _spawn_wave(wave: PackedScene) -> void:
 	var new_wave = wave.instance()
 	self.call_deferred("add_child", new_wave)
