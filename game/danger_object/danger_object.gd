@@ -3,6 +3,12 @@ extends Area2D
 
 onready var vis_notifier: VisibilityNotifier2D = get_node("VisibilityNotifier2D")
 
+enum MOVING_DIRECTION {
+	LEFT = 180,
+	RIGHT = 0, 
+	DOWN = 90,
+	UP = -90
+}
 
 export var speed = 30
 export var rotation_d: int = 45

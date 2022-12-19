@@ -86,3 +86,5 @@ position = Vector2( 0, 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flip = SubResource( 4 )
+
+[node name="DashCoolDown" type="Timer" parent="."]

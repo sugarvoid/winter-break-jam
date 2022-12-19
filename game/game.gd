@@ -6,6 +6,7 @@ onready var kill_zone: Area2D = get_node("KillZone")
 onready var effect_conatainer: EffectContainer = get_node("EffectContainer")
 onready var gamer_timer: Timer = get_node("GameTimer")
 
+
 var is_game_over: bool = false
 var seconds_in: int
 
@@ -23,8 +24,11 @@ func _start_level() -> void:
 	self.gamer_timer.start(1)
 
 func _respawn_player(_body: Node) -> void:
-	self.player.global_position = $PlayerSpawnPoint.global_position
-	print("respawning player.")
+#	if self.player.hp > 0:
+#		self.player.global_position = $PlayerSpawnPoint.global_position
+#		print("respawning player.")
+
+	_game_over()
 
 func _tick() -> void:
 	if !is_game_over:
@@ -45,4 +49,5 @@ func _connection_child_signals() -> void:
 	self.gamer_timer.connect("timeout", self, "_tick")
 	
 func _game_over():
+	# Play gameover sound
 	print('gameover')

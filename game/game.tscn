@@ -46,3 +46,5 @@ motion/sync_to_physics = false
 script = ExtResource( 7 )
 
 [node name="GameTimer" type="Timer" parent="."]
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
