@@ -1,6 +1,6 @@
 extends Control
 
-const DEFAULT_COLOR: Color = Color("96ecff")
+const DEFAULT_COLOR: Color = Color("0c7ef7")
 const HIGHLIGHT_COLOR: Color = Color.darkorange
 
 onready var option_list: Control = get_node("Options")

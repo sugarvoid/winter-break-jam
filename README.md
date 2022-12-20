@@ -4,9 +4,10 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 
 The plan is to make a bullet hell game, with no randomness. 
 
+
 ## Goal :dart:
 - Dodge the ice sickles for 2 minutes.
-## Controls :joystick:
+## Controls :joystick: 
 |Key|Action|
 |:---:|:---:|
 |A|Move Left|

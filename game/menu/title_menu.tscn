@@ -1,10 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/menu/title_menu.gd" type="Script" id=1]
-[ext_resource path="res://game/font/Boxy-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://game/font/fibberish.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0.0470588, 0.494118, 0.968627, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
+size = 32
+outline_color = Color( 0.0470588, 0.494118, 0.968627, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "title_sway"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LblTitle:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -19,14 +42,22 @@ margin_bottom = 48.0
 rect_scale = Vector2( 3.4377, 2.81689 )
 color = Color( 0.0313726, 0.101961, 0.219608, 1 )
 
-[node name="Label" type="Label" parent="."]
+[node name="LblTitle" type="Label" parent="."]
+anchor_left = 0.00833333
+anchor_top = 0.00735294
+anchor_right = 0.05
+anchor_bottom = 0.0808824
 margin_left = 38.0
 margin_top = 31.0
 margin_right = 188.0
 margin_bottom = 49.0
-custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Sickle Dodge"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Options" type="Control" parent="."]
 
@@ -36,7 +67,7 @@ margin_top = 83.0
 margin_right = 243.0
 margin_bottom = 101.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 
@@ -46,7 +77,6 @@ margin_top = 96.0
 margin_right = 236.0
 margin_bottom = 114.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
@@ -56,7 +86,6 @@ margin_top = 108.0
 margin_right = 244.0
 margin_bottom = 126.0
 rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0.588235, 0.92549, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 
@@ -81,3 +110,6 @@ margin_bottom = 119.525
 text = "Credits"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/title_sway = SubResource( 3 )

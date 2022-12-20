@@ -63,7 +63,9 @@ func _connection_child_signals() -> void:
 	self.start_delay_timer.connect("timeout", self, "_start_level")
 	self.player.connect("fell_off_screen", self, "_respawn_player")
 	self.player.connect("is_dying", self, "_remove_hazards")
-	self.player.connect("on_death", self, "_play_gameoever_sound")
+	# TODO: REMOVE ONCE I ADD SOUND
+	#### self.player.connect("on_death", self, "_play_gameoever_sound")
+	self.player.connect("on_death", self, "_end_game")
 	self.kill_zone.connect("body_entered", self, "_respawn_player")
 	self.player.connect("on_air_jump", self.effect_conatainer, "add_effect_to_screen")
 	self.gamer_timer.connect("timeout", self, "_tick")
@@ -76,8 +78,10 @@ func _play_gameoever_sound() -> void:
 func _end_game():
 	# Play gameover sound
 	self._remove_hazards()
+	$OverLay/LblRestart.visible = true
 	print('gameover')
 
 func _game_won() -> void:
 	# play winning sound
+	$OverLay/LblWin.visible = true
 	print('You win!')
