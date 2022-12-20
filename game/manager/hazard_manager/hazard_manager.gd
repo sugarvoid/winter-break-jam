@@ -3,6 +3,8 @@ extends Node2D
 
 signal player_finished
 
+onready var hazard_container: Node2D = get_node("HazardContainer")
+
 onready var single_sickle_left_timer: Timer = get_node("SickleLeft")
 onready var single_sickle_right_timer: Timer = get_node("SickleRight")
 
@@ -36,16 +38,19 @@ func _spawn_ice_sickle(spawn_pos: Vector2 = $Position2D.global_position, move_di
 	new_sickle.speed = speed
 	new_sickle.rotation_d = move_dir
 	new_sickle.global_position = spawn_pos
-	self.call_deferred("add_child", new_sickle)
+	self.hazard_container.call_deferred("add_child", new_sickle)
+
 
 func reset_self() -> void:
+	for c in self.hazard_container.get_children():
+		c.call_deferred("queue_free")
 	single_sickle_left_timer.stop()
 	single_sickle_right_timer.stop()
 
 func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
 	var new_wave: SickleWave = wave_type.instance()
 	new_wave.set_sickle_speed(speed)
-	self.call_deferred("add_child", new_wave)
+	self.hazard_container.call_deferred("add_child", new_wave)
 
 func _on_left_timeout() -> void:
 	print('left')

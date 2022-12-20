@@ -1,7 +1,7 @@
 class_name Player
 extends KinematicBody2D
 
-signal fell_off_screen
+
 signal on_air_jump(effect, pos)
 signal is_dying
 signal on_death
@@ -30,14 +30,13 @@ var is_grounded: bool
 var is_alive: bool = true
 var is_on_ice: bool
 
-var hp: int = 1
 
 func _ready():
 	animated_sprite.play("default")
 	animated_sprite.connect("animation_finished", self, "_animation_finished")
 
 func _physics_process(delta: float) -> void:
-	
+
 	if self.is_alive:
 		self.horizontal_direction = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 		
@@ -49,6 +48,7 @@ func _physics_process(delta: float) -> void:
 			is_grounded = false
 		
 		if Input.is_action_just_pressed("jump"):
+			print(jumps)
 			if jumps == 0:
 				jumps += 1
 				velocity.y = -jump_strength
@@ -58,7 +58,8 @@ func _physics_process(delta: float) -> void:
 					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 					$AnimationPlayer.play("flip")
 					velocity.y = -extra_jump_strength
-					jumps +=1
+					jumps += 1
+
 		if Input.is_action_just_pressed("dash"):
 			print("...dash...")
 	
@@ -86,22 +87,22 @@ func reset_jumps() -> void:
 	self.jumps = 0
 
 func take_damage():
-	if self.hp == 0:
-		return
-	#$CollisionShape2D.set_deferred("disabled", true)
-	print("taking damage")
-	self.hp -= 1
-	if self.hp == 0:
+	if self.is_alive:
+		print('herr')
 		self.is_alive = false
 		emit_signal("is_dying")
 		_play_death_animation()
+		print("taking damage")
 
 func _play_death_animation() -> void:
 	print('player is dead')
 	# Play animation
 	animated_sprite.play("dying")
 
-
+func reset_player() -> void:
+	self.velocity = Vector2.ZERO
+	self.is_alive = true
+	self.animated_sprite.play("default")
 
 func _animation_finished():
 	if animated_sprite.animation == "dying":

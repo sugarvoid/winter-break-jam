@@ -82,29 +82,29 @@ __meta__ = {
 [node name="Options" type="Control" parent="."]
 
 [node name="Label2" type="Label" parent="Options"]
-margin_left = 93.0
-margin_top = 83.0
-margin_right = 243.0
-margin_bottom = 101.0
+margin_left = 94.0
+margin_top = 81.0
+margin_right = 244.0
+margin_bottom = 109.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 
 [node name="Label3" type="Label" parent="Options"]
-margin_left = 86.0
-margin_top = 96.0
-margin_right = 236.0
-margin_bottom = 114.0
+margin_left = 87.0
+margin_top = 97.0
+margin_right = 237.0
+margin_bottom = 125.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "Credits"
 
 [node name="Label4" type="Label" parent="Options"]
-margin_left = 94.0
-margin_top = 108.0
-margin_right = 244.0
-margin_bottom = 126.0
+margin_left = 95.0
+margin_top = 112.0
+margin_right = 245.0
+margin_bottom = 140.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
