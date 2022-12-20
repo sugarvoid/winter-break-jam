@@ -7,16 +7,20 @@
 
 [node name="IceSickle" parent="Hazards" index="0" instance=ExtResource( 2 )]
 position = Vector2( 140, -19 )
+speed = 65
 rotation_d = 90
 
 [node name="IceSickle2" parent="Hazards" index="1" instance=ExtResource( 2 )]
 position = Vector2( 167, -18 )
+speed = 80
 rotation_d = 90
 
 [node name="IceSickle3" parent="Hazards" index="2" instance=ExtResource( 2 )]
 position = Vector2( 193, -16 )
+speed = 80
 rotation_d = 90
 
 [node name="IceSickle4" parent="Hazards" index="3" instance=ExtResource( 2 )]
 position = Vector2( 222, -16 )
+speed = 65
 rotation_d = 90

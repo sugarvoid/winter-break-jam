@@ -19,6 +19,10 @@ const p_SWTopRight: PackedScene = preload("res://game/danger_object/wave/sickle_
 const p_SWLeftTop: PackedScene = preload("res://game/danger_object/wave/sickle_wave_left_top.tscn")
 const p_SWLeftBottom: PackedScene = preload("res://game/danger_object/wave/sickle_wave_left_bottom.tscn")
 
+const p_SWRightTop: PackedScene = preload("res://game/danger_object/wave/sickle_wave_right_top.tscn")
+const p_SWLeftAll: PackedScene = preload("res://game/danger_object/wave/sickle_wave_left_all.tscn")
+
+
 const p_SWAll: PackedScene = preload("res://game/danger_object/wave/sickle_wave_top_all.tscn")
 
 var left_timer: int = 2
@@ -49,7 +53,7 @@ func reset_self() -> void:
 
 func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
 	var new_wave: SickleWave = wave_type.instance()
-	new_wave.set_sickle_speed(speed)
+	#new_wave.set_sickle_speed(speed)
 	self.hazard_container.call_deferred("add_child", new_wave)
 
 func _on_left_timeout() -> void:
@@ -86,6 +90,11 @@ func spawn_hazard(sec: int) -> void:
 			_spawn_wave(p_SWLeftBottom, 175)
 		17:
 			_spawn_wave(p_SWAll, 80)
+		18:
+			_spawn_wave(p_SWRightTop)
+			
+		25:
+			_spawn_wave(p_SWLeftAll)
 		118:
 			# last ones
 			pass
