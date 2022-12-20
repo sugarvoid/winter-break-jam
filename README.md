@@ -7,6 +7,7 @@ The plan is to make a bullet hell game, with no randomness.
 
 ## Goal :dart:
 - Dodge the ice sickles for 2 minutes.
+
 ## Controls :joystick: 
 |Key|Action|
 |:---:|:---:|
@@ -14,11 +15,13 @@ The plan is to make a bullet hell game, with no randomness.
 |D|Move Right|
 |Space|Jump|
 
-## ToDo
-- Add visual for game over
+## To-Do
+- Keep music playing after dying
+- Make ice sickles not look like nails
+- Make player freeze if not moving over 3 sec
+- Add bar in middle to prevent jump across?? 
 - Add Credits screen
 - Add pause feature(maybe be)
-- Quick restart after dying
 
 
 ## Credits
@@ -28,6 +31,7 @@ The plan is to make a bullet hell game, with no randomness.
 - SugarVoid
 ### Font
 - Boxy Bold by Clint Bellanger
+- Fibberish by [Nathan Scott](@caffi_nate) is licensed under [CC BY 3.0]()
 ### Music :musical_keyboard:
 - Snowy Cottage 8bit ver 2 by [TAD](https://www.youtube.com/c/Tadon) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - Iced Village by [TAD](https://www.youtube.com/c/Tadon) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
