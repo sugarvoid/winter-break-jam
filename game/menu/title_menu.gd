@@ -11,6 +11,7 @@ var is_credits_showing: bool = false
 
 func _ready():
 	_highlight_selected_option() 
+	$AnimationPlayer.play("title_sway")
 	$AudioStreamPlayer.play(26.00)
 
 func _input(event):

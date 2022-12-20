@@ -102,7 +102,8 @@ func _play_death_animation() -> void:
 	animated_sprite.play("dying")
 
 
+
 func _animation_finished():
 	if animated_sprite.animation == "dying":
 		emit_signal("on_death")
-		self.queue_free()
+		####  self.queue_free()

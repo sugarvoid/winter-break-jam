@@ -16,11 +16,11 @@ var is_game_over: bool = false
 var seconds_in: int
 
 func _ready():
+	$BackgroundMusic.play()
 	self._connection_child_signals() 
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
-	$BackgroundMusic.play()
 	_hide_overlay_items()
 	self.is_game_over = false
 	self._spawn_player()
@@ -39,7 +39,11 @@ func _hide_overlay_items() -> void:
 func _input(event):
 	if self.is_game_over:
 		if event.is_action_released("restart"):
+			self._restart_game()
 			get_tree().change_scene("res://game/game.tscn")
+
+func _restart_game() -> void:
+	pass
 
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
@@ -78,6 +82,7 @@ func _play_gameoever_sound() -> void:
 func _end_game():
 	# Play gameover sound
 	self._remove_hazards()
+	self.player.global_position = $OffScreenPos.global_position
 	$OverLay/LblRestart.visible = true
 	print('gameover')
 
