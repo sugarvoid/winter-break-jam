@@ -17,6 +17,7 @@ The plan is to make a bullet hell game, with no randomness.
 
 ## To-Do
 - Keep music playing after dying
+- Replace danger object with just ice sickle
 - Make ice sickles not look like nails
 - Make player freeze if not moving over 3 sec
 - Add bar in middle to prevent jump across?? 

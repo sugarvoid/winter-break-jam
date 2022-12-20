@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game/platform/static_platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://game/effect_container.gd" type="Script" id=7]
 [ext_resource path="res://game/level/TEMP_background.png" type="Texture" id=8]
 [ext_resource path="res://game/level/snow_effect.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/death_marker_container.gd" type="Script" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -38,6 +39,9 @@ position = Vector2( 50, 100 )
 
 [node name="OffScreenPos" type="Position2D" parent="."]
 position = Vector2( -26, -18 )
+
+[node name="DeathMarkerContainer" type="Node2D" parent="."]
+script = ExtResource( 10 )
 
 [node name="HazardManager" parent="." instance=ExtResource( 6 )]
 

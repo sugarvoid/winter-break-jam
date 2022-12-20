@@ -58,11 +58,11 @@ func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
 
 func _on_left_timeout() -> void:
 	print('left')
-	_spawn_ice_sickle(single_left_pos.global_position, DangerObject.MOVING_DIRECTION.RIGHT, 80)
+	_spawn_ice_sickle(single_left_pos.global_position, DangerObject.MOVING_DIRECTION.RIGHT, 200)
 
 func _on_right_timeout() -> void:
 	print('right')
-	_spawn_ice_sickle(single_right_pos.global_position, DangerObject.MOVING_DIRECTION.LEFT, 100)
+	_spawn_ice_sickle(single_right_pos.global_position, DangerObject.MOVING_DIRECTION.LEFT, 110)
 
 func spawn_hazard(sec: int) -> void:
 	pass

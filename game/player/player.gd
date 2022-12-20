@@ -4,12 +4,14 @@ extends KinematicBody2D
 
 signal on_air_jump(effect, pos)
 signal is_dying
-signal on_death
+signal on_death(dying_pos)
+
 
 const UP_DIRECTION: Vector2 = Vector2.UP
 const p_JumpEffect: PackedScene = preload("res://game/player/jump_effect.tscn")
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+onready var standing_still_timer: Timer = get_node("StandingStillTimer")
 
 var velocity: Vector2 = Vector2.ZERO
 var speed: float =  130.0
@@ -29,17 +31,19 @@ var is_dashing: bool = false
 var is_grounded: bool
 var is_alive: bool = true
 var is_on_ice: bool
-
+var idle_time_max: int = 2
+var is_idle: bool
 
 func _ready():
 	animated_sprite.play("default")
 	animated_sprite.connect("animation_finished", self, "_animation_finished")
+	standing_still_timer.connect("timeout", self, "take_damage")
 
 func _physics_process(delta: float) -> void:
-
+	
+	
 	if self.is_alive:
 		self.horizontal_direction = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
-		
 		if better_is_on_floor(): 
 			if !is_grounded:
 				reset_jumps()
@@ -83,12 +87,16 @@ func better_is_on_floor() -> bool:
 			arr.append(true)
 	return arr.has(true)
 
+func _start_standing_still_timer() -> void:
+	print("starting timmer")
+	self.standing_still_timer.start(self.idle_time_max)
+
 func reset_jumps() -> void:
 	self.jumps = 0
 
 func take_damage():
 	if self.is_alive:
-		print('herr')
+		print('brrrr')
 		self.is_alive = false
 		emit_signal("is_dying")
 		_play_death_animation()
@@ -106,5 +114,5 @@ func reset_player() -> void:
 
 func _animation_finished():
 	if animated_sprite.animation == "dying":
-		emit_signal("on_death")
+		emit_signal("on_death", self.global_position)
 		####  self.queue_free()

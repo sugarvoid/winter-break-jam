@@ -24,6 +24,7 @@ func _ready():
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
+	self.seconds_in = 0
 	_hide_overlay_items()
 	self.is_game_over = false
 	self.player.reset_player()
@@ -51,6 +52,7 @@ func _restart_game() -> void:
 
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
+		self.gamer_timer.stop()
 		self.gamer_timer.start(1)
 		self.hazard_manager.start_timers()
 
@@ -83,7 +85,8 @@ func _connection_child_signals() -> void:
 	self.gameover_sound.connect("finished", self, "_end_game")
 	self.hazard_manager.connect("player_finished", self, "_game_won")
 
-func _play_gameoever_sound() -> void:
+func _play_gameoever_sound(_pos: Vector2) -> void:
+	$DeathMarkerContainer.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position
 	gameover_sound.play()
 

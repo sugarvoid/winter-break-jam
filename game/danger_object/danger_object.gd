@@ -13,17 +13,29 @@ enum MOVING_DIRECTION {
 export var speed = 30
 export var rotation_d: int = 45
 
+var made_contact: bool = false
+
 func _ready():
 	rotation_degrees = self.rotation_d
 	self.vis_notifier.connect("screen_exited", self, "queue_free")
+	$AnimatedSprite.connect("animation_finished", self, "_animation_finsihed")
 	self.connect("body_entered", self, "_on_hit")
 
 func _process(delta):
-	position += transform.x * speed * delta
+	if !made_contact:
+		position += transform.x * speed * delta
 	
 func _on_hit(body: Node) -> void:
-	
+	self.made_contact = true
 	print(body)
 	# shatter animation
 	if body.has_method("take_damage"):
 		body.take_damage() 
+	else:
+		$AnimatedSprite.play("break")
+
+func _animation_finsihed() -> void:
+	if $AnimatedSprite.animation == "break":
+		self.queue_free()
+	else:
+		return
