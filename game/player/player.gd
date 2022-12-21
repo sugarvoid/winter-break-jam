@@ -100,7 +100,7 @@ func take_damage():
 		self.is_alive = false
 		emit_signal("is_dying")
 		_play_death_animation()
-		print("taking damage")
+		print("dying")
 
 func _play_death_animation() -> void:
 	print('player is dead')

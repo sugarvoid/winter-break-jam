@@ -20,7 +20,7 @@ tangential_accel_curve = SubResource( 2 )
 [node name="SnowEffect" type="Node2D"]
 
 [node name="Particles2D" type="Particles2D" parent="."]
-self_modulate = Color( 1, 1, 1, 0.376471 )
+self_modulate = Color( 1, 1, 1, 0.45098 )
 position = Vector2( 120, -33 )
 amount = 250
 lifetime = 4.5

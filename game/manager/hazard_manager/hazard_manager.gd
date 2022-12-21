@@ -71,6 +71,10 @@ func spawn_hazard(sec: int) -> void:
 			_spawn_ice_sickle()
 		2, 10:
 			_spawn_wave(p_SWTopLeft, 150)
+		
+		3:
+			_spawn_wave(p_SWRightTop)
+			
 		4:
 			_spawn_ice_sickle()
 		5:

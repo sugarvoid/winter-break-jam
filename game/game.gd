@@ -17,8 +17,10 @@ onready var background_music: AudioStreamPlayer = get_node("BackgroundMusic")
 
 var is_game_over: bool = false
 var seconds_in: int
+var player_deaths: int
 
 func _ready():
+	self._update_death_counter(player_deaths)
 	self.background_music.play()
 	self._connection_child_signals() 
 	self._set_up_new_game()
@@ -50,6 +52,9 @@ func _input(event):
 func _restart_game() -> void:
 	_set_up_new_game()
 
+func _update_death_counter(n: int) -> void:
+	$HUD/Label.text = str("Deaths: ", n)
+
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
 		self.gamer_timer.stop()
@@ -59,7 +64,7 @@ func _start_level() -> void:
 func _on_player_falling(_body: Node) -> void:
 	if _body.has_method("take_damage"):
 		_body.take_damage()
-		_end_game()
+		_end_game(_body.global_position)
 		### self._end_game()
 
 func _tick() -> void:
@@ -67,9 +72,9 @@ func _tick() -> void:
 		self.seconds_in += 1
 		print(str('tick ', self.seconds_in))
 		self.hazard_manager.spawn_hazard(self.seconds_in)
+		$DEBUG/Label.text = str("Tick #", seconds_in)
 
 func _remove_hazards() -> void:
-	self.is_game_over = true
 	self.hazard_manager.reset_self()
 
 func _connection_child_signals() -> void:
@@ -78,7 +83,7 @@ func _connection_child_signals() -> void:
 	self.player.connect("is_dying", self, "_remove_hazards")
 	# TODO: REMOVE ONCE I ADD SOUND
 	#### self.player.connect("on_death", self, "_play_gameoever_sound")
-	self.player.connect("on_death", self, "_play_gameoever_sound")
+	self.player.connect("on_death", self, "_end_game")
 	self.kill_zone.connect("body_entered", self, "_on_player_falling")
 	self.player.connect("on_air_jump", self.effect_conatainer, "add_effect_to_screen")
 	self.gamer_timer.connect("timeout", self, "_tick")
@@ -86,14 +91,20 @@ func _connection_child_signals() -> void:
 	self.hazard_manager.connect("player_finished", self, "_game_won")
 
 func _play_gameoever_sound(_pos: Vector2) -> void:
+	print('playing game over sound')
+	self.is_game_over = true
 	$DeathMarkerContainer.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position
 	gameover_sound.play()
 
-func _end_game():
+func _end_game(_pos: Vector2):
 	# Play gameover sound
+	self.player_deaths += 1
+	self._update_death_counter(player_deaths)
+	self.is_game_over = true
+	$DeathMarkerContainer.add_marker_to_screen(_pos)
+	self.player.global_position = self.off_screen_pos.global_position
 	self._remove_hazards()
-	
 	$OverLay/LblRestart.visible = true
 	print('gameover')
 

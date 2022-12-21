@@ -32,6 +32,7 @@ func _on_hit(body: Node) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage() 
 	else:
+		$Hitbox.set_deferred("disabled", true)
 		$AnimatedSprite.play("break")
 
 func _animation_finsihed() -> void:
