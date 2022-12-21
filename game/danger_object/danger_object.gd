@@ -27,8 +27,7 @@ func _process(delta):
 	
 func _on_hit(body: Node) -> void:
 	self.made_contact = true
-	print(body)
-	# shatter animation
+	#print(body)
 	if body.has_method("take_damage"):
 		body.take_damage() 
 	else:

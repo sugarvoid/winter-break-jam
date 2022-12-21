@@ -37,7 +37,19 @@ var is_idle: bool
 func _ready():
 	animated_sprite.play("default")
 	animated_sprite.connect("animation_finished", self, "_animation_finished")
-	standing_still_timer.connect("timeout", self, "take_damage")
+	standing_still_timer.connect("timeout", self, "_on_frozen")
+
+
+func _process(delta):
+	if self.is_alive:
+		if Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right") || Input.is_action_pressed("jump"):
+			if !self.standing_still_timer.is_stopped():
+				self.standing_still_timer.stop()
+		else:
+			if self.standing_still_timer.is_stopped():
+				self.standing_still_timer.start(idle_time_max)
+			else:
+				pass
 
 func _physics_process(delta: float) -> void:
 	
@@ -94,6 +106,10 @@ func _start_standing_still_timer() -> void:
 func reset_jumps() -> void:
 	self.jumps = 0
 
+func _on_frozen() -> void:
+	print("player froze")
+	take_damage()
+
 func take_damage():
 	if self.is_alive:
 		print('brrrr')
@@ -109,6 +125,7 @@ func _play_death_animation() -> void:
 
 func reset_player() -> void:
 	self.velocity = Vector2.ZERO
+	self.standing_still_timer.stop()
 	self.is_alive = true
 	self.animated_sprite.play("default")
 
