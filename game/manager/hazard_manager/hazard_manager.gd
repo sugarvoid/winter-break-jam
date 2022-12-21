@@ -48,6 +48,10 @@ func _spawn_ice_sickle(spawn_pos: Vector2 = $Position2D.global_position, move_di
 func reset_self() -> void:
 	for c in self.hazard_container.get_children():
 		c.call_deferred("queue_free")
+		self._stop_timers()
+	
+
+func _stop_timers() -> void:
 	single_sickle_left_timer.stop()
 	single_sickle_right_timer.stop()
 
@@ -65,16 +69,13 @@ func _on_right_timeout() -> void:
 	_spawn_ice_sickle(single_right_pos.global_position, DangerObject.MOVING_DIRECTION.LEFT, 110)
 
 func spawn_hazard(sec: int) -> void:
-	pass
 	match sec:
 		1:
 			_spawn_ice_sickle()
 		2, 10:
 			_spawn_wave(p_SWTopLeft, 150)
-		
 		3:
 			_spawn_wave(p_SWRightTop)
-			
 		4:
 			_spawn_ice_sickle()
 		5:
@@ -84,9 +85,16 @@ func spawn_hazard(sec: int) -> void:
 		7:
 			_spawn_ice_sickle($Position2D2.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
 			_spawn_ice_sickle($Position2D.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
+		8: 
+			_stop_timers()
 		12:
-			_spawn_wave(p_SWAll, 120)
+			start_timers()
+			_spawn_wave(p_SWTopRight, 150)
+			_spawn_wave(p_SWLeftBottom, 70)
+			
 		13:
+			_spawn_wave(p_SWAll, 120)
+		14:
 			_spawn_wave(p_SWTopLeft, 200)
 		15:
 			_spawn_wave(p_SWLeftBottom, 180)
@@ -99,8 +107,25 @@ func spawn_hazard(sec: int) -> void:
 			
 		25:
 			_spawn_wave(p_SWLeftAll)
+		27:
+			_spawn_wave(p_SWAll, 70)
+		28:
+			_spawn_wave(p_SWAll, 90)
+		29:
+			_spawn_wave(p_SWAll, 110)
+		30:
+			_spawn_wave(p_SWAll, 130)
+		# 31 - 37 Shall be a break
+		31:
+			_stop_timers()
+		38:
+			_stop_timers()
+			_spawn_wave(p_SWLeftBottom, 180)
+		39:
+			_spawn_wave(p_SWRightTop, 200)
 		118:
 			# last ones
 			pass
 		120:
+			# End of game
 			emit_signal("player_finished")

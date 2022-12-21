@@ -13,6 +13,8 @@ const p_JumpEffect: PackedScene = preload("res://game/player/jump_effect.tscn")
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 onready var standing_still_timer: Timer = get_node("StandingStillTimer")
 
+onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+
 var velocity: Vector2 = Vector2.ZERO
 var speed: float =  130.0
 var acceleration: float = 0.2
@@ -31,16 +33,24 @@ var is_dashing: bool = false
 var is_grounded: bool
 var is_alive: bool = true
 var is_on_ice: bool
-var idle_time_max: int = 2
+var idle_time_max: int = 1.5
 var is_idle: bool
 
 func _ready():
+	_reset_collsion_shape()
 	animated_sprite.play("default")
 	animated_sprite.connect("animation_finished", self, "_animation_finished")
 	standing_still_timer.connect("timeout", self, "_on_frozen")
+	animation_player.connect("animation_finished", self, "_animation_player_finished")
 
+func _reset_collsion_shape() -> void:
+	$CollisionShape2D.shape.extents.y = 6
+	
+func _lower_collsion_shape() -> void:
+	$CollisionShape2D.shape.extents.y = 3
 
 func _process(delta):
+	print($CollisionShape2D.shape.extents)
 	if self.is_alive:
 		if Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right") || Input.is_action_pressed("jump"):
 			if !self.standing_still_timer.is_stopped():
@@ -71,6 +81,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				print('not on floor????')
 				if jumps >= 1 and jumps <= max_jumps:
+					_lower_collsion_shape()
 					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 					$AnimationPlayer.play("flip")
 					velocity.y = -extra_jump_strength
@@ -107,8 +118,9 @@ func reset_jumps() -> void:
 	self.jumps = 0
 
 func _on_frozen() -> void:
-	print("player froze")
-	take_damage()
+	if self.is_alive:
+		print("player froze")
+		take_damage()
 
 func take_damage():
 	if self.is_alive:
@@ -129,7 +141,12 @@ func reset_player() -> void:
 	self.is_alive = true
 	self.animated_sprite.play("default")
 
+func _animation_player_finished(ani_name: String) -> void:
+	if ani_name == "flip":
+		_reset_collsion_shape()
+
 func _animation_finished():
 	if animated_sprite.animation == "dying":
 		emit_signal("on_death", self.global_position)
 		####  self.queue_free()
+		

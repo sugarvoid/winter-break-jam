@@ -17,15 +17,17 @@ onready var background_music: AudioStreamPlayer = get_node("BackgroundMusic")
 
 var is_game_over: bool = false
 var seconds_in: int
-var player_deaths: int
+var player_attempts: int
 
 func _ready():
-	self._update_death_counter(player_deaths)
+	self.player_attempts = 0
 	self.background_music.play()
 	self._connection_child_signals() 
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
+	self.player_attempts += 1
+	self._update_attempt_counter(player_attempts)
 	self.seconds_in = 0
 	_hide_overlay_items()
 	self.is_game_over = false
@@ -52,8 +54,8 @@ func _input(event):
 func _restart_game() -> void:
 	_set_up_new_game()
 
-func _update_death_counter(n: int) -> void:
-	$HUD/Label.text = str("Deaths: ", n)
+func _update_attempt_counter(n: int) -> void:
+	$HUD/Label.text = str("Attempt: ", n)
 
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
@@ -63,6 +65,7 @@ func _start_level() -> void:
 
 func _on_player_falling(_body: Node) -> void:
 	if _body.has_method("take_damage"):
+		player.is_alive = false
 		_body.take_damage()
 		_end_game(_body.global_position)
 		### self._end_game()
@@ -99,8 +102,7 @@ func _play_gameoever_sound(_pos: Vector2) -> void:
 
 func _end_game(_pos: Vector2):
 	# Play gameover sound
-	self.player_deaths += 1
-	self._update_death_counter(player_deaths)
+	
 	self.is_game_over = true
 	$DeathMarkerContainer.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position

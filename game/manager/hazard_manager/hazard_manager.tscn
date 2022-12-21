@@ -17,7 +17,7 @@ position = Vector2( -20, 78 )
 position = Vector2( -17, 112 )
 
 [node name="SingleRightPos" type="Position2D" parent="."]
-position = Vector2( 261, 93 )
+position = Vector2( 258, 85 )
 
 [node name="SickleLeft" type="Timer" parent="."]
 
