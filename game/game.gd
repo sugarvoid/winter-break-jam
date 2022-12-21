@@ -20,6 +20,7 @@ onready var background_music: AudioStreamPlayer = get_node("BackgroundMusic")
 var is_game_over: bool = false
 var seconds_in: int
 var player_attempts: int
+var has_finished_once: bool = false
 
 func _ready():
 	self.player_attempts = 0

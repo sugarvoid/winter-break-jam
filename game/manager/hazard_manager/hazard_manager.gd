@@ -130,11 +130,11 @@ func spawn_hazard(sec: int) -> void:
 			pass
 		41:
 			pass
-		41:
+		45:
 			_spawn_wave(p_SWRightBottom)
 		55:
 			# last ones
-			_spawn_wave()
+			_spawn_wave(p_SWFinal)
 		60:
 			# End of game
 			emit_signal("player_finished")
