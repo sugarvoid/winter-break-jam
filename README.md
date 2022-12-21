@@ -22,9 +22,6 @@ Dodge the ice sickles for 1 minute.
 ## To-Do :heavy_check_mark:
 - Replace danger object class with just ice sickle
 - Make ice sickles not look like nails
-- Add bar in middle to prevent jump across?? 
-- Add Credits screen
-- Add pause feature(maybe be)
 
 ## Possible additions
 - Endless mode
