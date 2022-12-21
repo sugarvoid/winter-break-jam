@@ -7,6 +7,8 @@ onready var option_list: Control = get_node("Options")
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 onready var title_music: AudioStreamPlayer = get_node("AudioStreamPlayer")
 
+onready var credits: Control = get_node("Credits")
+
 var selected_option: int = 0
 var _is_credits_showing: bool = false
 
@@ -17,7 +19,7 @@ func _ready():
 	self.title_music.play(26.00)
 
 func _process(delta):
-	if !_is_credits_showing:
+	if !self.credits.visible:
 		if Input.is_action_just_released("ui_accept"):
 			_make_selection(self.selected_option)
 		if Input.is_action_just_pressed("ui_up"):
@@ -29,16 +31,14 @@ func _process(delta):
 	else:
 		if Input.is_action_just_pressed("ui_cancel"):
 			# Hid Credits 
-			self._is_credits_showing = false
+			self.credits.visible = !self.credits.visible
 
 func _make_selection(n: int) -> void:
 	match(n):
 		0: # Play
 			get_tree().change_scene("res://game/game.tscn")
 		1: # Credits
-			pass
-			# Show Credits
-			self._is_credits_showing = true
+			self.credits.visible = !self.credits.visible
 		2: # Quit
 			get_tree().quit()
 

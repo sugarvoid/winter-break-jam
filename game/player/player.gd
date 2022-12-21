@@ -50,7 +50,6 @@ func _lower_collsion_shape() -> void:
 	$CollisionShape2D.shape.extents.y = 3
 
 func _process(delta):
-	print($CollisionShape2D.shape.extents)
 	if self.is_alive:
 		if Input.is_action_pressed("move_left") || Input.is_action_pressed("move_right") || Input.is_action_pressed("jump"):
 			if !self.standing_still_timer.is_stopped():

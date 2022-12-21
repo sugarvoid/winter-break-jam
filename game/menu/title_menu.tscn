@@ -68,8 +68,8 @@ margin_right = -40.0
 margin_bottom = -30.44
 grow_horizontal = 2
 grow_vertical = 2
-rect_rotation = -4.70555
-rect_scale = Vector2( 0.952944, 0.952944 )
+rect_rotation = 0.044178
+rect_scale = Vector2( 0.900442, 0.900442 )
 rect_pivot_offset = Vector2( 80, 14 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 2 )
@@ -111,8 +111,11 @@ text = "Quit"
 
 [node name="Credits" type="Control" parent="."]
 visible = false
-margin_right = 240.0
+margin_right = 238.0
 margin_bottom = 136.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="Credits"]
 margin_left = -8.0
@@ -123,11 +126,24 @@ rect_scale = Vector2( 3.4377, 2.81689 )
 color = Color( 0.0313726, 0.101961, 0.219608, 1 )
 
 [node name="Label" type="Label" parent="Credits/ColorRect"]
-margin_left = 13.381
-margin_top = 19.5251
-margin_right = 167.381
-margin_bottom = 119.525
-text = "Credits"
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 346.0
+margin_bottom = 235.0
+rect_scale = Vector2( 0.2, 0.2 )
+text = "Credits
+
+Programmer and Artist
+SugarVoid
+
+Font
+Boxy Bold by Clint Bellanger
+Fibberish by Nathan Scott (CC BY 3.0)
+
+Music
+Snowy Cottage 8bit ver 2 by TAD (CC BY 4.0)
+Iced Village by TAD(CC BY 4.0)"
+align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

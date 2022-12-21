@@ -17,25 +17,19 @@ position = Vector2( -15, 53 )
 position = Vector2( -15, 66 )
 
 [node name="L4" type="Position2D" parent="."]
-position = Vector2( -15, 112 )
+position = Vector2( -15, 117.769 )
 
 [node name="R1" type="Position2D" parent="."]
-position = Vector2( 258, 26 )
+position = Vector2( 245, -11 )
 
 [node name="R2" type="Position2D" parent="."]
-position = Vector2( 259, 56 )
+position = Vector2( 258, 48 )
 
 [node name="R3" type="Position2D" parent="."]
-position = Vector2( 259, 83 )
+position = Vector2( 258, 75 )
 
 [node name="R4" type="Position2D" parent="."]
-position = Vector2( 258, 109 )
-
-[node name="RDia" type="Position2D" parent="."]
-position = Vector2( 251, -10 )
-
-[node name="LDia" type="Position2D" parent="."]
-position = Vector2( -11, -12 )
+position = Vector2( 258, 105.914 )
 
 [node name="SickleLeft" type="Timer" parent="."]
 

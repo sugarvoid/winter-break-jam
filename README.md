@@ -5,7 +5,7 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 <hr>
 
 ## Goal :dart:
-Dodge the ice sickles for 2 minutes.
+Dodge the ice sickles for 1 minute.
 <hr>
 
 ## Controls :joystick: 
