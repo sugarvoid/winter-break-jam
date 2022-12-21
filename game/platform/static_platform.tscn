@@ -4,7 +4,7 @@
 [ext_resource path="res://game/platform/platform.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 39, 2 )
+extents = Vector2( 40, 2 )
 
 [node name="StaticPlatform" type="Node2D"]
 script = ExtResource( 2 )

@@ -4,7 +4,6 @@ const START_DELAY: int = 3
 const FALLING_Y_POS: int = 132
 
 
-
 onready var player: Player = get_node("Player")
 onready var kill_zone: Area2D = get_node("KillZone")
 onready var effect_conatainer: EffectContainer = get_node("EffectContainer")

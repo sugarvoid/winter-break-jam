@@ -16,18 +16,18 @@ func _ready():
 	self.animation_player.play("title_sway")
 	self.title_music.play(26.00)
 
-func _input(event):
+func _process(delta):
 	if !_is_credits_showing:
-		if event.is_action_just_released("ui_accept"):
+		if Input.is_action_just_released("ui_accept"):
 			_make_selection(self.selected_option)
-		if event.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_up"):
 			_move_up()
 			_highlight_selected_option()
-		if event.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("ui_down"):
 			_move_down()
 			_highlight_selected_option()
 	else:
-		if event.is_action_just_pressed("ui_cancel"):
+		if Input.is_action_just_pressed("ui_cancel"):
 			# Hid Credits 
 			self._is_credits_showing = false
 

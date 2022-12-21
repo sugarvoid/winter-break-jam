@@ -53,6 +53,7 @@ animations = [ {
 } ]
 
 [node name="IceSickle" instance=ExtResource( 1 )]
+rotation_d = -45
 
 [node name="Hitbox" parent="." index="0"]
 position = Vector2( -1.5, -0.5 )

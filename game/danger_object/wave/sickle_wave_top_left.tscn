@@ -11,13 +11,13 @@ speed = 120
 rotation_d = 90
 
 [node name="IceSickle2" parent="Hazards" index="1" instance=ExtResource( 2 )]
-position = Vector2( 41, -22 )
-speed = 120
+position = Vector2( 41, -49 )
+speed = 150
 rotation_d = 90
 
 [node name="IceSickle3" parent="Hazards" index="2" instance=ExtResource( 2 )]
-position = Vector2( 67, -20 )
-speed = 120
+position = Vector2( 67, -49 )
+speed = 150
 rotation_d = 90
 
 [node name="IceSickle4" parent="Hazards" index="3" instance=ExtResource( 2 )]

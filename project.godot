@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "EffectContainer",
 "language": "GDScript",
-"path": "res://game/effect_container.gd"
+"path": "res://game/level/effect_container.gd"
 }, {
 "base": "Node2D",
 "class": "HazardManager",

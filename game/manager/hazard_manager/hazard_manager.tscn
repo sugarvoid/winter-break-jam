@@ -7,17 +7,35 @@ script = ExtResource( 1 )
 
 [node name="HazardContainer" type="Node2D" parent="."]
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -20, 43 )
+[node name="L1" type="Position2D" parent="."]
+position = Vector2( -15, 37 )
 
-[node name="Position2D2" type="Position2D" parent="."]
-position = Vector2( -20, 78 )
+[node name="L2" type="Position2D" parent="."]
+position = Vector2( -15, 53 )
 
-[node name="SingleLeftPos" type="Position2D" parent="."]
-position = Vector2( -17, 112 )
+[node name="L3" type="Position2D" parent="."]
+position = Vector2( -15, 66 )
 
-[node name="SingleRightPos" type="Position2D" parent="."]
-position = Vector2( 258, 85 )
+[node name="L4" type="Position2D" parent="."]
+position = Vector2( -15, 112 )
+
+[node name="R1" type="Position2D" parent="."]
+position = Vector2( 258, 26 )
+
+[node name="R2" type="Position2D" parent="."]
+position = Vector2( 259, 56 )
+
+[node name="R3" type="Position2D" parent="."]
+position = Vector2( 259, 83 )
+
+[node name="R4" type="Position2D" parent="."]
+position = Vector2( 258, 109 )
+
+[node name="RDia" type="Position2D" parent="."]
+position = Vector2( 251, -10 )
+
+[node name="LDia" type="Position2D" parent="."]
+position = Vector2( -11, -12 )
 
 [node name="SickleLeft" type="Timer" parent="."]
 

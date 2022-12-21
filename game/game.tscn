@@ -6,10 +6,10 @@
 [ext_resource path="res://game/level/kill_zone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/sound/8_bit_iced_village.ogg" type="AudioStream" id=5]
 [ext_resource path="res://game/manager/hazard_manager/hazard_manager.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/effect_container.gd" type="Script" id=7]
+[ext_resource path="res://game/level/effect_container.gd" type="Script" id=7]
 [ext_resource path="res://game/level/TEMP_background.png" type="Texture" id=8]
 [ext_resource path="res://game/level/snow_effect.tscn" type="PackedScene" id=9]
-[ext_resource path="res://game/death_marker_container.gd" type="Script" id=10]
+[ext_resource path="res://game/level/death_marker_container.gd" type="Script" id=10]
 [ext_resource path="res://game/sound/flame_out.wav" type="AudioStream" id=11]
 
 [node name="Game" type="Node2D"]

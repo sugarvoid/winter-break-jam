@@ -7,7 +7,9 @@ enum MOVING_DIRECTION {
 	LEFT = 180,
 	RIGHT = 0, 
 	DOWN = 90,
-	UP = -90
+	UP = -90,
+	DIA_RIGHT = -45,
+	DIA_LEFT = 45
 }
 
 export var speed = 30
