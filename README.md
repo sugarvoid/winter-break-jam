@@ -1,6 +1,6 @@
-# winter-break-jam
+# winter-break-jam :snowman:
 
-My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-winter-bullet-hell-jam) :snowman:
+My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-winter-bullet-hell-jam) 
 
 <hr>
 
@@ -19,7 +19,7 @@ Dodge the ice sickles for 2 minutes.
 <sub>Also has controller support</sub>
 <hr>
 
-## To-Do :check_mark:
+## To-Do :heavy_check_mark:
 - Replace danger object class with just ice sickle
 - Make death marker work if player fall off screen
 - Make ice sickles not look like nails
