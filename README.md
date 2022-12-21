@@ -21,9 +21,7 @@ Dodge the ice sickles for 2 minutes.
 
 ## To-Do :heavy_check_mark:
 - Replace danger object class with just ice sickle
-- Make death marker work if player fall off screen
 - Make ice sickles not look like nails
-- Make player freeze if not moving over 3 sec
 - Add bar in middle to prevent jump across?? 
 - Add Credits screen
 - Add pause feature(maybe be)
