@@ -24,6 +24,7 @@ Dodge the ice sickles for 1 minute.
 - Make ice sickles not look like nails
 
 ## Possible additions
+- Add dash
 - Endless mode
 - Daily Seed mode
 <hr>

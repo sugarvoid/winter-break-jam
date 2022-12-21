@@ -14,6 +14,7 @@ onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 onready var standing_still_timer: Timer = get_node("StandingStillTimer")
 
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+onready var hitbox: CollisionShape2D = get_node("CollisionShape2D")
 
 var velocity: Vector2 = Vector2.ZERO
 var speed: float =  130.0
@@ -44,10 +45,10 @@ func _ready():
 	animation_player.connect("animation_finished", self, "_animation_player_finished")
 
 func _reset_collsion_shape() -> void:
-	$CollisionShape2D.shape.extents.y = 6
+	hitbox.shape.extents.y = 6
 	
 func _lower_collsion_shape() -> void:
-	$CollisionShape2D.shape.extents.y = 3
+	hitbox.shape.extents.y = 3
 
 func _process(delta):
 	if self.is_alive:
@@ -81,9 +82,9 @@ func _physics_process(delta: float) -> void:
 				print('not on floor????')
 				if jumps >= 1 and jumps <= max_jumps:
 					_lower_collsion_shape()
-					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 					$AnimationPlayer.play("flip")
 					velocity.y = -extra_jump_strength
+					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 					jumps += 1
 
 		if Input.is_action_just_pressed("dash"):
