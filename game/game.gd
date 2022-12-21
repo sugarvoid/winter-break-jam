@@ -1,6 +1,9 @@
 extends Node2D
 
 const START_DELAY: int = 3
+const FALLING_Y_POS: int = 132
+
+
 
 onready var player: Player = get_node("Player")
 onready var kill_zone: Area2D = get_node("KillZone")
@@ -29,7 +32,7 @@ func _set_up_new_game() -> void:
 	self.player_attempts += 1
 	self._update_attempt_counter(player_attempts)
 	self.seconds_in = 0
-	_hide_overlay_items()
+	self._hide_overlay_items()
 	self.is_game_over = false
 	self.player.reset_player()
 	self._spawn_player()
@@ -47,28 +50,26 @@ func _hide_overlay_items() -> void:
 
 func _input(event):
 	if self.is_game_over:
-		if event.is_action_released("restart"):
+		if event.is_action_released("jump"):
 			self._restart_game()
-			#get_tree().change_scene("res://game/game.tscn")
 
 func _restart_game() -> void:
-	_set_up_new_game()
+	self._set_up_new_game()
 
 func _update_attempt_counter(n: int) -> void:
 	$HUD/Label.text = str("Attempt: ", n)
 
 func _start_level() -> void:
-	if !is_game_over: # Prevents chrashing if player jumps of level before game startss
+	if !is_game_over: # Prevents chrashing if player jumps of level before game starts
 		self.gamer_timer.stop()
 		self.gamer_timer.start(1)
 		self.hazard_manager.start_timers()
 
 func _on_player_falling(_body: Node) -> void:
 	if _body.has_method("take_damage"):
-		player.is_alive = false
+		self._end_game(Vector2(_body.global_position.x, FALLING_Y_POS))
+		self.player.is_alive = false
 		_body.take_damage()
-		_end_game(_body.global_position)
-		### self._end_game()
 
 func _tick() -> void:
 	if !is_game_over:
@@ -96,7 +97,7 @@ func _connection_child_signals() -> void:
 func _play_gameoever_sound(_pos: Vector2) -> void:
 	print('playing game over sound')
 	self.is_game_over = true
-	$DeathMarkerContainer.add_marker_to_screen(_pos)
+	#######  $DeathMarkerContainer.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position
 	gameover_sound.play()
 

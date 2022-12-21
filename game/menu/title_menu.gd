@@ -4,30 +4,32 @@ const DEFAULT_COLOR: Color = Color("0c7ef7")
 const HIGHLIGHT_COLOR: Color = Color("ededed")
 
 onready var option_list: Control = get_node("Options")
+onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+onready var title_music: AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 var selected_option: int = 0
-var is_credits_showing: bool = false
+var _is_credits_showing: bool = false
 
 
 func _ready():
 	_highlight_selected_option() 
-	$AnimationPlayer.play("title_sway")
-	$AudioStreamPlayer.play(26.00)
+	self.animation_player.play("title_sway")
+	self.title_music.play(26.00)
 
 func _input(event):
-	if !is_credits_showing:
-		if Input.is_action_just_released("ui_accept"):
+	if !_is_credits_showing:
+		if event.is_action_just_released("ui_accept"):
 			_make_selection(self.selected_option)
-		if Input.is_action_just_pressed("ui_up"):
+		if event.is_action_just_pressed("ui_up"):
 			_move_up()
 			_highlight_selected_option()
-		if Input.is_action_just_pressed("ui_down"):
+		if event.is_action_just_pressed("ui_down"):
 			_move_down()
 			_highlight_selected_option()
 	else:
-		if Input.is_action_just_pressed("ui_cancel"):
+		if event.is_action_just_pressed("ui_cancel"):
 			# Hid Credits 
-			pass
+			self._is_credits_showing = false
 
 func _make_selection(n: int) -> void:
 	match(n):
@@ -35,6 +37,8 @@ func _make_selection(n: int) -> void:
 			get_tree().change_scene("res://game/game.tscn")
 		1: # Credits
 			pass
+			# Show Credits
+			self._is_credits_showing = true
 		2: # Quit
 			get_tree().quit()
 

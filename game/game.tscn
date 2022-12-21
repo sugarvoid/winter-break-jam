@@ -28,7 +28,7 @@ position = Vector2( 50, 124 )
 position = Vector2( 184, 124 )
 
 [node name="KillZone" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, 178 )
+position = Vector2( 118, 152 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 69, 67 )
@@ -69,7 +69,7 @@ margin_left = 89.0
 margin_top = 41.0
 margin_right = 140.0
 margin_bottom = 55.0
-text = "Press R "
+text = "Press [jump]"
 
 [node name="LblWin" type="Label" parent="OverLay"]
 visible = false
@@ -82,19 +82,19 @@ text = "You Win"
 [node name="DEBUG" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="DEBUG"]
-margin_left = 102.0
-margin_top = 126.0
-margin_right = 149.0
-margin_bottom = 140.0
+margin_left = 168.0
+margin_top = 2.0
+margin_right = 215.0
+margin_bottom = 16.0
 rect_scale = Vector2( 0.5, 0.5 )
 text = "Tick #"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="HUD"]
-margin_left = 151.0
-margin_top = 128.0
-margin_right = 198.0
-margin_bottom = 142.0
+margin_left = 203.0
+margin_top = 2.0
+margin_right = 250.0
+margin_bottom = 16.0
 rect_scale = Vector2( 0.5, 0.5 )
 text = "ttttttt"
