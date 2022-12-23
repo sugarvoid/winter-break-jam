@@ -4,11 +4,8 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 
 <hr>
 
-## Goal :dart:
-Dodge the ice sickles for 1 minute.
-
-### Other Info:
-Dodge the ice sickles for 1 minute.
+## Info :dart:
+- Dodge the ice sickles for 1 minute.
 - The sickles are not random, they will always spawn in the same pattern/order.
 - The player will freeze if standing still.
 - There can triple jump.
