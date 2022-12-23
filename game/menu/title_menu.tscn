@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game/menu/title_menu.gd" type="Script" id=1]
 [ext_resource path="res://game/font/fibberish.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,9 @@ size = 32
 outline_size = 1
 outline_color = Color( 0.0470588, 0.494118, 0.968627, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -82,6 +85,15 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 215.0
+margin_top = 127.0
+margin_right = 274.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 5 )
+text = "v 0.1.0"
 
 [node name="Options" type="Control" parent="."]
 
