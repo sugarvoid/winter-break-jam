@@ -35,7 +35,7 @@ Dodge the ice sickles for 1 minute.
 ### Sprites
 - SugarVoid
 ### Font
-- Boxy Bold by Clint Bellanger
+- Equipe Basic by [Eeve Somepx](https://somepx.itch.io/) [CSL](http://www.palmentieri.it/somepx/license.txt)
 - Fibberish by [Nathan Scott](@caffi_nate) is licensed under [CC BY 3.0]()
 ### Music :musical_keyboard:
 - Snowy Cottage 8bit ver 2 by [TAD](https://www.youtube.com/c/Tadon) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/menu/title_menu.gd" type="Script" id=1]
 [ext_resource path="res://game/font/fibberish.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://game/sound/snowy_cottage_v_2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://game/font/Equipe Basic 9h.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -14,6 +15,9 @@ font_data = ExtResource( 2 )
 size = 32
 outline_color = Color( 0.0470588, 0.494118, 0.968627, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "title_sway"
@@ -131,13 +135,14 @@ margin_top = 4.0
 margin_right = 346.0
 margin_bottom = 235.0
 rect_scale = Vector2( 0.2, 0.2 )
+custom_fonts/font = SubResource( 4 )
 text = "Credits
 
 Programmer and Artist
 SugarVoid
 
 Font
-Boxy Bold by Clint Bellanger
+Equipe Basic by Eeve Somepx (CSL)
 Fibberish by Nathan Scott (CC BY 3.0)
 
 Music
