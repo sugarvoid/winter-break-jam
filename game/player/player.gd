@@ -84,9 +84,6 @@ func _physics_process(delta: float) -> void:
 					velocity.y = -extra_jump_strength
 					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 					jumps += 1
-
-		if Input.is_action_just_pressed("dash"):
-			print("...dash...")
 	
 		if self.horizontal_direction != 0: 
 			velocity.x = lerp(velocity.x, self.horizontal_direction * speed, acceleration)
