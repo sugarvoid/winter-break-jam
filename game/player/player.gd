@@ -74,12 +74,10 @@ func _physics_process(delta: float) -> void:
 			is_grounded = false
 		
 		if Input.is_action_just_pressed("jump"):
-			print(jumps)
 			if jumps == 0:
 				jumps += 1
 				velocity.y = -jump_strength
 			else:
-				print('not on floor????')
 				if jumps >= 1 and jumps <= max_jumps:
 					_lower_collsion_shape()
 					$AnimationPlayer.play("flip")

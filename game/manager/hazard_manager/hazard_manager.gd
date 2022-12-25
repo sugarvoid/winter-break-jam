@@ -26,16 +26,16 @@ const p_SWRightBottom: PackedScene = preload("res://game/danger_object/wave/sick
 const p_SWFinal: PackedScene = preload("res://game/danger_object/wave/sickle_wave_final.tscn")
 
 #TODO: Make const 
-var left_timer: int = 2
-var right_timer: int = 3
+var left_timer_time: int = 3
+var right_timer_time: float = 4.0
 
 func _ready():
 	single_sickle_left_timer.connect("timeout", self, "_on_left_timeout")
 	single_sickle_right_timer.connect("timeout", self, "_on_right_timeout")
 
 func start_timers() -> void:
-	single_sickle_left_timer.start(self.left_timer)
-	single_sickle_right_timer.start(self.right_timer)
+	single_sickle_right_timer.start(right_timer_time)
+	single_sickle_left_timer.start(left_timer_time)
 
 func _spawn_ice_sickle(spawn_pos: Vector2 = $L4.global_position, move_dir: int = 0, speed = 60) -> void:
 	var new_sickle: DangerObject = p_IceSickle.instance()
@@ -59,11 +59,9 @@ func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
 	self.hazard_container.call_deferred("add_child", new_wave)
 
 func _on_left_timeout() -> void:
-	print('left')
 	_spawn_ice_sickle(bottom_left.global_position, DangerObject.MOVING_DIRECTION.RIGHT, 200)
 
 func _on_right_timeout() -> void:
-	print('right')
 	_spawn_ice_sickle(bottom_right.global_position, DangerObject.MOVING_DIRECTION.LEFT, 70)
 
 func spawn_hazard(sec: int) -> void:

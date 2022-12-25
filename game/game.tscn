@@ -75,6 +75,7 @@ stream = ExtResource( 11 )
 [node name="WinningSound" type="AudioStreamPlayer" parent="."]
 
 [node name="StartDelay" type="Timer" parent="."]
+one_shot = true
 
 [node name="OverLay" type="CanvasLayer" parent="."]
 

@@ -74,9 +74,8 @@ func _on_player_falling(_body: Node) -> void:
 func _tick() -> void:
 	if !is_game_over:
 		self.seconds_in += 1
-		print(str('tick ', self.seconds_in))
 		self.hazard_manager.spawn_hazard(self.seconds_in)
-		$DEBUG/Label.text = str("Tick #", seconds_in)
+		$DEBUG/Label.text = str("Sec #", seconds_in)
 
 func _remove_hazards() -> void:
 	self.hazard_manager.reset_self()
@@ -95,7 +94,7 @@ func _connection_child_signals() -> void:
 	self.hazard_manager.connect("player_finished", self, "_game_won")
 
 func _play_gameoever_sound(_pos: Vector2) -> void:
-	print('playing game over sound')
+
 	self.is_game_over = true
 	#######  $DeathMarkerContainer.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position
