@@ -27,9 +27,8 @@ My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-wi
 - Make ice sickles not look like nails
 
 ## Possible additions
-- Add dash
+- Hats
 - Endless mode
-- Daily Seed mode
 <hr>
 
 ## Credits
