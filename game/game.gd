@@ -2,6 +2,7 @@ extends Node2D
 
 const START_DELAY: int = 3
 const FALLING_Y_POS: int = 132
+const GAME_LENGTH: int = 60
 
 
 onready var player: Player = get_node("Player")
@@ -16,11 +17,13 @@ onready var gameover_sound: AudioStreamPlayer = get_node("GameOverSound")
 onready var off_screen_pos: Position2D = get_node("OffScreenPos")
 onready var player_spawn_point: Position2D = get_node("PlayerSpawnPoint")
 onready var background_music: AudioStreamPlayer = get_node("BackgroundMusic")
+onready var lbl_time_left: Label = get_node("HUD/LblTimeLeft")
 
 var is_game_over: bool = false
 var seconds_in: int
 var player_attempts: int
 var has_finished_once: bool = false
+var _time_left: int
 
 func _ready():
 	self.player_attempts = 0
@@ -29,7 +32,10 @@ func _ready():
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
+	self._time_left = GAME_LENGTH
+	
 	self.player_attempts += 1
+	self._update_time_left_label()
 	self._update_attempt_counter(player_attempts)
 	self.seconds_in = 0
 	self._hide_overlay_items()
@@ -57,7 +63,7 @@ func _restart_game() -> void:
 	self._set_up_new_game()
 
 func _update_attempt_counter(n: int) -> void:
-	$HUD/Label.text = str("Attempt: ", n)
+	$HUD/LblAttempt.text = str("Attempt: ", n)
 
 func _start_level() -> void:
 	if !is_game_over: # Prevents chrashing if player jumps of level before game starts
@@ -71,8 +77,13 @@ func _on_player_falling(_body: Node) -> void:
 		self.player.is_alive = false
 		_body.take_damage()
 
+func _update_time_left_label() -> void:
+	self.lbl_time_left.text = str(self._time_left)
+	
 func _tick() -> void:
 	if !is_game_over:
+		self._time_left -= 1
+		self._update_time_left_label()
 		self.seconds_in += 1
 		self.hazard_manager.spawn_hazard(self.seconds_in)
 		$DEBUG/Label.text = str("Sec #", seconds_in)

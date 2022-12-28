@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://game/platform/static_platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=2]
@@ -25,6 +25,10 @@ font_data = ExtResource( 13 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 13 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -111,7 +115,7 @@ text = "Tick #"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="HUD"]
+[node name="LblAttempt" type="Label" parent="HUD"]
 margin_left = 192.0
 margin_top = 1.0
 margin_right = 277.0
@@ -119,3 +123,15 @@ margin_bottom = 15.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "Attempt: 222"
+
+[node name="LblTimeLeft" type="Label" parent="HUD"]
+modulate = Color( 1, 1, 1, 0.117647 )
+margin_left = 85.0
+margin_top = 10.0
+margin_right = 125.0
+margin_bottom = 38.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0.505882, 0.811765, 0.913725, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "60"
+align = 1
