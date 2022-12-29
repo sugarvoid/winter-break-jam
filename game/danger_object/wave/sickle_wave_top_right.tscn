@@ -6,21 +6,17 @@
 [node name="SWTopRight" instance=ExtResource( 1 )]
 
 [node name="IceSickle" parent="Hazards" index="0" instance=ExtResource( 2 )]
-position = Vector2( 135, -20 )
-speed = 65
+position = Vector2( 121, -78 )
 rotation_d = 90
 
 [node name="IceSickle2" parent="Hazards" index="1" instance=ExtResource( 2 )]
-position = Vector2( 167, -20 )
-speed = 80
+position = Vector2( 138, -20 )
 rotation_d = 90
 
 [node name="IceSickle3" parent="Hazards" index="2" instance=ExtResource( 2 )]
-position = Vector2( 193, -20 )
-speed = 80
+position = Vector2( 201, -21 )
 rotation_d = 90
 
 [node name="IceSickle4" parent="Hazards" index="3" instance=ExtResource( 2 )]
-position = Vector2( 223, -20 )
-speed = 65
+position = Vector2( 223, -79 )
 rotation_d = 90

@@ -12,7 +12,7 @@ enum MOVING_DIRECTION {
 	DIA_LEFT = -50
 }
 
-export var speed = 30
+var speed = 30
 export var rotation_d: int = 45
 
 var made_contact: bool = false

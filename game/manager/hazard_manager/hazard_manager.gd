@@ -55,76 +55,84 @@ func _stop_timers() -> void:
 
 func _spawn_wave(wave_type: PackedScene, speed: int = 100) -> void:
 	var new_wave: SickleWave = wave_type.instance()
-	#new_wave.set_sickle_speed(speed)
+	new_wave.set_sickle_speed(speed)
 	self.hazard_container.call_deferred("add_child", new_wave)
 
 func _on_left_timeout() -> void:
-	_spawn_ice_sickle(bottom_left.global_position, DangerObject.MOVING_DIRECTION.RIGHT, 200)
+	_spawn_ice_sickle(bottom_left.global_position, DangerObject.MOVING_DIRECTION.RIGHT, 150)
 
 func _on_right_timeout() -> void:
 	_spawn_ice_sickle(bottom_right.global_position, DangerObject.MOVING_DIRECTION.LEFT, 70)
 
 func spawn_hazard(sec: int) -> void:
 	match sec:
-		1:
-			_spawn_ice_sickle()
-		2, 10:
-			_spawn_wave(p_SWTopLeft, 150)
-		3:
-			_spawn_wave(p_SWRightTop)
+		2:
+			_spawn_wave(p_SWTopLeft, 100)
 		4:
-			_spawn_ice_sickle()
-		5:
-			_spawn_wave(p_SWTopRight, 50)
+			_spawn_wave(p_SWTopRight, 80)
 		6:
+			_spawn_wave(p_SWLeftBottom, 120)
+		8:
+			_spawn_wave(p_SWLeftAll, 90)
+		10:
 			_spawn_wave(p_SWLeftTop, 80)
-		7:
-			_spawn_ice_sickle(self.bottom_left.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
-			_spawn_ice_sickle(self.bottom_right.global_position, DangerObject.MOVING_DIRECTION.RIGHT)
-		8: 
-			_stop_timers()
 		12:
+			pass
+		14: 
+			_stop_timers()
+		16:
 			start_timers()
 			_spawn_wave(p_SWTopRight, 150)
-			_spawn_wave(p_SWLeftBottom, 70)
-		13:
-			_spawn_wave(p_SWTopAll, 120)
-		14:
-			_spawn_wave(p_SWTopLeft, 200)
-		15:
-			_spawn_wave(p_SWLeftBottom, 180)
-		16:
-			_spawn_wave(p_SWLeftBottom, 175)
-		17:
-			_spawn_wave(p_SWTopAll, 80)
+			_spawn_wave(p_SWLeftBottom, 100)
 		18:
-			_spawn_wave(p_SWRightTop)
-		25:
-			_spawn_wave(p_SWLeftAll)
-		27:
-			_spawn_wave(p_SWTopAll, 70)
+			_spawn_wave(p_SWTopAll, 120)
+		20:
+			_spawn_wave(p_SWTopLeft, 200)
+		22:
+			_spawn_wave(p_SWLeftBottom, 180)
+		24:
+			_spawn_wave(p_SWLeftBottom, 175)
+		26:
+			_spawn_wave(p_SWTopAll, 80)
 		28:
-			_spawn_wave(p_SWTopAll, 90)
-		29:
-			_spawn_wave(p_SWTopAll, 110)
+			_spawn_wave(p_SWRightTop)
 		30:
+			_spawn_wave(p_SWLeftAll)
+		32:
+			_spawn_wave(p_SWTopAll, 70)
+		34:
+			_spawn_wave(p_SWTopAll, 90)
+		32:
+			_spawn_wave(p_SWTopAll, 110)
+		34:
 			_spawn_wave(p_SWRightTop, 130)
 			_spawn_wave(p_SWLeftTop, 130)
-		# 31 - 36 Shall be a break
-		31:
-			_stop_timers()
 		36:
+			_stop_timers()
+		38:
 			start_timers()
 			_spawn_wave(p_SWLeftBottom, 180)
 		40:
-			_spawn_wave(p_SWRightTop, 200)
-		41:
+			_spawn_wave(p_SWRightTop, 130)
+		42:
 			pass
-		45:
+		44:
 			_spawn_wave(p_SWRightBottom)
-		55:
-			# last ones
+		46:
+			pass
+			
+		48:
+			pass
+		50:
+			pass
+		52:
+			pass
+		54:
+			pass
+		56:
 			_spawn_wave(p_SWFinal)
+		58:
+			pass
 		60:
 			# End of game
 			_stop_timers()
