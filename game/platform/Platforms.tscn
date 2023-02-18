@@ -5,7 +5,7 @@
 [node name="Platforms" type="Node2D"]
 
 [node name="StaticPlatformLeft" parent="." instance=ExtResource( 2 )]
-position = Vector2( 50, 124 )
+position = Vector2( 90, 124 )
 
 [node name="StaticPlatformRight" parent="." instance=ExtResource( 2 )]
-position = Vector2( 184, 124 )
+position = Vector2( 145, 124 )

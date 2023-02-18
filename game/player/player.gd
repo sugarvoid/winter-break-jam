@@ -21,7 +21,7 @@ var speed: float =  130.0
 var acceleration: float = 0.2
 
 # TODO: Add two types of friction 1.0 for normal and 0.03 for "on ice"
-var friction: float = 0.05
+var friction: float = 0.04
 var gravity: float = 1000.0
 var horizontal_direction: int
 

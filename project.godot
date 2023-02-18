@@ -56,7 +56,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="winter-break-jam"
+config/name="sickle-dodge"
 run/main_scene="res://game/menu/title_menu.tscn"
 config/icon="res://icon.png"
 
