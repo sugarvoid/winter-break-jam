@@ -14,7 +14,7 @@ onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 onready var standing_still_timer: Timer = get_node("StandingStillTimer")
 
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
-onready var hitbox: CollisionShape2D = get_node("CollisionShape2D")
+onready var hitbox: CollisionPolygon2D = get_node("CollisionShape")
 
 var velocity: Vector2 = Vector2.ZERO
 var speed: float =  130.0
@@ -45,10 +45,12 @@ func _ready():
 	animation_player.connect("animation_finished", self, "_animation_player_finished")
 
 func _reset_collsion_shape() -> void:
-	hitbox.shape.extents.y = 6
+	$AnimatedSprite.modulate.a = 1.00
+	hitbox.set_deferred("disabled", false)
 	
 func _lower_collsion_shape() -> void:
-	hitbox.shape.extents.y = 3
+	$AnimatedSprite.modulate.a = 0.50
+	hitbox.set_deferred("disabled", true)
 
 func _process(delta):
 	if self.is_alive:
