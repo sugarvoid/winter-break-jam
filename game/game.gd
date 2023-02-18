@@ -9,8 +9,6 @@ onready var player: Player = get_node("Player")
 onready var kill_zone: Area2D = get_node("KillZone")
 onready var effect_conatainer: EffectContainer = get_node("EffectContainer")
 onready var gamer_timer: Timer = get_node("GameTimer")
-onready var static_platform_left: Platform = get_node("StaticPlatformLeft")
-onready var static_platform_right: Platform = get_node("StaticPlatformRight")
 onready var hazard_manager: HazardManager = get_node("HazardManager")
 onready var start_delay_timer: Timer = get_node("StartDelay")
 onready var gameover_sound: AudioStreamPlayer = get_node("GameOverSound")
@@ -18,6 +16,8 @@ onready var off_screen_pos: Position2D = get_node("OffScreenPos")
 onready var player_spawn_point: Position2D = get_node("PlayerSpawnPoint")
 onready var background_music: AudioStreamPlayer = get_node("BackgroundMusic")
 onready var lbl_time_left: Label = get_node("HUD/LblTimeLeft")
+
+onready var manager_death_marker: DeathMarkerManager = $DeathMarkerManager
 
 var is_game_over: bool = false
 var seconds_in: int
@@ -42,8 +42,6 @@ func _set_up_new_game() -> void:
 	self.is_game_over = false
 	self.player.reset_player()
 	self._spawn_player()
-	self.static_platform_left.is_frozen = true
-	self.static_platform_right.is_frozen = true
 	self.start_delay_timer.start(START_DELAY)
 	self._start_level()
 
@@ -115,7 +113,7 @@ func _end_game(_pos: Vector2):
 	# Play gameover sound
 	
 	self.is_game_over = true
-	$DeathMarkerContainer.add_marker_to_screen(_pos)
+	$DeathMarkerManager.add_marker_to_screen(_pos)
 	self.player.global_position = self.off_screen_pos.global_position
 	self._remove_hazards()
 	$OverLay/LblRestart.visible = true

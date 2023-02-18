@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://game/manager/hazard_manager/hazard_manager.gd" type="Script" id=1]
+[ext_resource path="res://game/platform/Platforms.tscn" type="PackedScene" id=2]
 
 [node name="HazardManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,14 +24,40 @@ position = Vector2( -14, 114 )
 position = Vector2( 245, -11 )
 
 [node name="R2" type="Position2D" parent="."]
-position = Vector2( 258, 48 )
+position = Vector2( 258, 34 )
 
 [node name="R3" type="Position2D" parent="."]
-position = Vector2( 258, 75 )
+position = Vector2( 258, 61 )
 
 [node name="R4" type="Position2D" parent="."]
-position = Vector2( 258, 96 )
+position = Vector2( 258, 89 )
 
 [node name="SickleLeft" type="Timer" parent="."]
 
 [node name="SickleRight" type="Timer" parent="."]
+
+[node name="Platforms" parent="." instance=ExtResource( 2 )]
+
+[node name="LeftLeft" type="Position2D" parent="."]
+position = Vector2( 20, -18 )
+
+[node name="LeftCenter" type="Position2D" parent="."]
+position = Vector2( 50, -18 )
+
+[node name="LeftRight" type="Position2D" parent="."]
+position = Vector2( 80, -18 )
+
+[node name="RightLeft" type="Position2D" parent="."]
+position = Vector2( 153, -18 )
+
+[node name="RightCenter" type="Position2D" parent="."]
+position = Vector2( 183, -18 )
+
+[node name="RightRight" type="Position2D" parent="."]
+position = Vector2( 213, -18 )
+
+[node name="CenterLeft" type="Position2D" parent="."]
+position = Vector2( 104, -33 )
+
+[node name="CenterRight" type="Position2D" parent="."]
+position = Vector2( 130, -33 )
