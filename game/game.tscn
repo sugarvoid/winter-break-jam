@@ -50,7 +50,7 @@ collision_layer = 2
 collision_mask = 13
 
 [node name="PlayerSpawnPoint" type="Position2D" parent="."]
-position = Vector2( 50, 100 )
+position = Vector2( 69, 93 )
 
 [node name="OffScreenPos" type="Position2D" parent="."]
 position = Vector2( -26, -18 )
