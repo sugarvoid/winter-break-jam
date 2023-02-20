@@ -6,39 +6,39 @@
 [node name="SWLeftAll" instance=ExtResource( 1 )]
 
 [node name="IceSickle2" parent="Hazards" index="0" instance=ExtResource( 2 )]
-position = Vector2( -18, 24 )
+position = Vector2( -18, 21 )
 rotation_d = 0
 
 [node name="IceSickle3" parent="Hazards" index="1" instance=ExtResource( 2 )]
-position = Vector2( -18, 46 )
+position = Vector2( -18, 43 )
 rotation_d = 0
 
 [node name="IceSickle4" parent="Hazards" index="2" instance=ExtResource( 2 )]
-position = Vector2( -19, 66 )
+position = Vector2( -19, 63 )
 rotation_d = 0
 
 [node name="IceSickle14" parent="Hazards" index="3" instance=ExtResource( 2 )]
-position = Vector2( -274, 24 )
+position = Vector2( -274, 27 )
 rotation_d = 0
 
 [node name="IceSickle15" parent="Hazards" index="4" instance=ExtResource( 2 )]
-position = Vector2( -274, 46 )
+position = Vector2( -274, 49 )
 rotation_d = 0
 
 [node name="IceSickle16" parent="Hazards" index="5" instance=ExtResource( 2 )]
-position = Vector2( -275, 66 )
+position = Vector2( -275, 69 )
 rotation_d = 0
 
 [node name="IceSickle10" parent="Hazards" index="6" instance=ExtResource( 2 )]
-position = Vector2( -144, 23 )
+position = Vector2( -144, 22 )
 rotation_d = 0
 
 [node name="IceSickle11" parent="Hazards" index="7" instance=ExtResource( 2 )]
-position = Vector2( -144, 45 )
+position = Vector2( -144, 44 )
 rotation_d = 0
 
 [node name="IceSickle12" parent="Hazards" index="8" instance=ExtResource( 2 )]
-position = Vector2( -144, 67 )
+position = Vector2( -144, 66 )
 rotation_d = 0
 
 [node name="IceSickle5" parent="Hazards" index="9" instance=ExtResource( 2 )]
