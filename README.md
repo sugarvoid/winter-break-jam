@@ -2,6 +2,10 @@
 
 My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-winter-bullet-hell-jam) 
 
+
+https://user-images.githubusercontent.com/48969490/219983995-8e094a6c-d601-4c84-9642-d1ad25cc1b90.mp4
+
+
 <hr>
 
 ## Info :dart:
