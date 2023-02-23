@@ -86,14 +86,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="."]
+[node name="LblVersion" type="Label" parent="."]
 margin_left = 215.0
 margin_top = 127.0
 margin_right = 274.0
 margin_bottom = 144.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 5 )
-text = "v 0.1.1"
+text = "v 0.2.0"
 
 [node name="Options" type="Control" parent="."]
 
