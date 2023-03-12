@@ -32,8 +32,9 @@ func _ready():
 	self._set_up_new_game()
 
 func _set_up_new_game() -> void:
+	self.player.is_freezable = true
 	self._time_left = GAME_LENGTH
-	
+	self.lbl_time_left.visible = true
 	self.player_attempts += 1
 	self._update_time_left_label()
 	self._update_attempt_counter(player_attempts)
@@ -120,6 +121,9 @@ func _end_game(_pos: Vector2):
 	print('gameover')
 
 func _game_won() -> void:
+	self.player.is_freezable = false
+	self.gamer_timer.stop()
+	self.lbl_time_left.visible = false
 	# play winning sound
 	$OverLay/LblWin.visible = true
 	print('You win!')

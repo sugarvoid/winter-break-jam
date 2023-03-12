@@ -170,3 +170,9 @@ volume_db = -10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/title_sway = SubResource( 3 )
+
+[node name="BtnCheatMode" type="TextureButton" parent="."]
+margin_left = 128.0
+margin_top = 32.0
+margin_right = 193.0
+margin_bottom = 60.0

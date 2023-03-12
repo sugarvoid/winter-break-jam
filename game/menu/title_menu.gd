@@ -7,6 +7,8 @@ onready var option_list: Control = get_node("Options")
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 onready var title_music: AudioStreamPlayer = get_node("AudioStreamPlayer")
 
+onready var btn_cheat_mode: TextureButton = get_node("BtnCheatMode")
+
 onready var credits: Control = get_node("Credits")
 
 var selected_option: int = 0
@@ -17,6 +19,7 @@ func _ready():
 	_highlight_selected_option() 
 	self.animation_player.play("title_sway")
 	self.title_music.play(26.00)
+	self.btn_cheat_mode.connect("pressed", self, "_enter_cheat_mode")
 
 func _process(delta):
 	if !self.credits.visible:
@@ -53,6 +56,10 @@ func _move_down() -> void:
 		selected_option = 0
 	else:
 		selected_option += 1
+
+func _enter_cheat_mode() -> void:
+	_make_selection(0)
+	print("pressed cheat mode")
 
 func _highlight_selected_option() -> void:
 	for l in option_list.get_children():

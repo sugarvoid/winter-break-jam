@@ -25,6 +25,7 @@ var friction: float = 0.03
 var gravity: float = 1000.0
 var horizontal_direction: int
 
+var is_freezable: bool = true
 var jumps: int = 0
 var jump_strength: float =  300.0
 var max_jumps: int = 2
@@ -38,6 +39,7 @@ var idle_time_max: int = 1.5
 var is_idle: bool
 
 func _ready():
+	hitbox.set_deferred("disabled", true)
 	_reset_collsion_shape()
 	animated_sprite.play("default")
 	animated_sprite.connect("animation_finished", self, "_animation_finished")
@@ -115,7 +117,7 @@ func reset_jumps() -> void:
 	self.jumps = 0
 
 func _on_frozen() -> void:
-	if self.is_alive:
+	if self.is_alive and self.is_freezable:
 		print("player froze")
 		take_damage()
 

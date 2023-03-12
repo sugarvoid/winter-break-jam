@@ -29,8 +29,8 @@ func _process(delta):
 	
 func _on_hit(body: Node) -> void:
 	self.made_contact = true
-	#print(body)
 	if body.has_method("take_damage"):
+		pass
 		body.take_damage() 
 	else:
 		$Hitbox.set_deferred("disabled", true)
