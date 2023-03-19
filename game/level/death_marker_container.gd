@@ -3,7 +3,7 @@ extends Node2D
 
 
 const p_DeathMarker: PackedScene = preload("res://game/player/death_marker.tscn")
-const MAX_MARKERS: int = 15
+const MAX_MARKERS: int = 30
 
 onready var _marker_conatiner: Node2D = $MarkerContainer
 
