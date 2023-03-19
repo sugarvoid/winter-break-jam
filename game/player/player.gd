@@ -21,14 +21,21 @@ var speed: float =  130.0
 var acceleration: float = 0.2
 
 # TODO: Add two types of friction 1.0 for normal and 0.03 for "on ice"
-var friction: float = 0.03
+var friction: float = 0.5
 var gravity: float = 1000.0
 var horizontal_direction: int
 
+
+
+var jump_timer = 0
+export var max_jump_time = 0.3
+
+
 var is_freezable: bool = true
 var jumps: int = 0
-var jump_strength: float =  300.0
-var max_jumps: int = 2
+var jump_strength: float =  350.0
+var max_jumps: int = 1
+var jumps_left = 0
 var extra_jump_strength: float = 230.0
 
 var is_dashing: bool = false
@@ -77,17 +84,63 @@ func _physics_process(delta: float) -> void:
 		else: 
 			is_grounded = false
 		
-		if Input.is_action_just_pressed("jump"):
-			if jumps == 0:
-				jumps += 1
-				velocity.y = -jump_strength
+		
+		
+		
+		
+		
+		
+		# Handle jumping
+
+	
+		
+		
+		
+		
+		
+		if better_is_on_floor():
+			jump_timer = 0
+			jumps_left = self.max_jumps
+		else:
+			jump_timer += delta
+
+		if Input.is_action_just_pressed("jump") and (jumps_left > 0 or jump_timer < max_jump_time):
+			if not better_is_on_floor():
+				jumps_left -= 1
+				velocity.y = -extra_jump_strength
+				_lower_collsion_shape()
+				$AnimationPlayer.play("flip")
+				self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
 			else:
-				if jumps >= 1 and jumps <= max_jumps:
-					_lower_collsion_shape()
-					$AnimationPlayer.play("flip")
-					velocity.y = -extra_jump_strength
-					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
-					jumps += 1
+				velocity.y = -jump_strength * (1.0 - jump_timer / max_jump_time)
+#			else:
+#				if jumps >= 1 and jumps <= max_jumps:
+#					_lower_collsion_shape()
+#					$AnimationPlayer.play("flip")
+#					velocity.y = -extra_jump_strength
+#					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
+#					jumps += 1
+		elif Input.is_action_just_released("jump") and velocity.y < 0:
+			velocity.y *= 0.5
+		
+		
+		
+		
+		
+		
+		
+		
+#		if Input.is_action_just_pressed("jump"):
+#			if jumps == 0:
+#				jumps += 1
+#				velocity.y = -jump_strength
+#			else:
+#				if jumps >= 1 and jumps <= max_jumps:
+#					_lower_collsion_shape()
+#					$AnimationPlayer.play("flip")
+#					velocity.y = -extra_jump_strength
+#					self.emit_signal("on_air_jump", p_JumpEffect, $Position2D.global_position)
+#					jumps += 1
 	
 		if self.horizontal_direction != 0: 
 			velocity.x = lerp(velocity.x, self.horizontal_direction * speed, acceleration)
