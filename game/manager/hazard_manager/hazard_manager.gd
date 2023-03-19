@@ -104,17 +104,16 @@ func spawn_hazard(sec: int) -> void:
 		32:
 			_spawn_wave(p_SWTopAll, 70)
 		34:
-			_spawn_wave(p_SWTopAll, 90)
-		32:
+			pass
+			#_spawn_wave(p_SWTopAll, 90)
+		35:
 			_spawn_wave(p_SWTopAll, 110)
-		34:
-			_spawn_wave(p_SWRightTop, 130)
-			_spawn_wave(p_SWLeftTop, 130)
+
 		36:
 			_stop_timers()
 		38:
 			start_timers()
-			_spawn_wave(p_SWLeftBottom, 180)
+			_spawn_wave(p_SWLeftBottom, 100)
 		40:
 			_spawn_wave(p_SWRightTop, 130)
 		42:
