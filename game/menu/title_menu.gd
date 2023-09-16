@@ -17,6 +17,7 @@ var _is_credits_showing: bool = false
 
 func _ready():
 	_highlight_selected_option() 
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	self.animation_player.play("title_sway")
 	self.title_music.play(26.00)
 	self.btn_cheat_mode.connect("pressed", self, "_enter_cheat_mode")

@@ -18,7 +18,7 @@ position = Vector2( -18, 57 )
 rotation_d = 0
 
 [node name="IceSickle5" parent="Hazards" index="3" instance=ExtResource( 2 )]
-position = Vector2( -18, 113 )
+position = Vector2( -87, 113 )
 rotation_d = 0
 
 [node name="IceSickle6" parent="Hazards" index="4" instance=ExtResource( 2 )]
@@ -34,7 +34,7 @@ position = Vector2( -135, 57 )
 rotation_d = 0
 
 [node name="IceSickle9" parent="Hazards" index="7" instance=ExtResource( 2 )]
-position = Vector2( -135, 113 )
+position = Vector2( -204, 113 )
 rotation_d = 0
 
 [node name="IceSickle10" parent="Hazards" index="8" instance=ExtResource( 2 )]
@@ -50,5 +50,5 @@ position = Vector2( -283, 57 )
 rotation_d = 0
 
 [node name="IceSickle13" parent="Hazards" index="11" instance=ExtResource( 2 )]
-position = Vector2( -283, 113 )
+position = Vector2( -352, 113 )
 rotation_d = 0

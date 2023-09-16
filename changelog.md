@@ -4,4 +4,8 @@
 - Added countdown timer in background 
 
 ## 0.2.0
-- Markers remove after reaching max
+- Death markers now disappear after reaching max
+
+## 0.2.1
+- Adjusted sickle positions and speeds
+- Removed triple jump 
