@@ -32,6 +32,8 @@ func _process(delta):
 		if Input.is_action_just_pressed("ui_down"):
 			_move_down()
 			_highlight_selected_option()
+		if Input.is_action_just_pressed("ui_cancel"):
+			get_tree().quit()
 	else:
 		if Input.is_action_just_pressed("ui_cancel"):
 			# Hid Credits 
