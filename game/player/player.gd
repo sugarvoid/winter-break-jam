@@ -19,18 +19,11 @@ onready var hitbox: CollisionPolygon2D = get_node("CollisionShape")
 var velocity: Vector2 = Vector2.ZERO
 var speed: float =  130.0
 var acceleration: float = 0.2
-
-# TODO: Add two types of friction 1.0 for normal and 0.03 for "on ice"
 var friction: float = 0.1
 var gravity: float = 1200.0
 var horizontal_direction: int
-
-
-
 var jump_timer = 0
-export var max_jump_time = 0.3
-
-
+var max_jump_time = 0.3
 var is_freezable: bool = true
 var jumps: int = 0
 var jump_strength: float =  350.0

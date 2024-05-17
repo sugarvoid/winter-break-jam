@@ -6,33 +6,33 @@
 [node name="SWTopLeft" instance=ExtResource( 1 )]
 
 [node name="IceSickle" parent="Hazards" index="0" instance=ExtResource( 2 )]
-position = Vector2( 46, -17 )
+position = Vector2( 87, -17 )
 rotation_d = 90
 
 [node name="IceSickle2" parent="Hazards" index="1" instance=ExtResource( 2 )]
-position = Vector2( 67, -133 )
+position = Vector2( 56, -133 )
 rotation_d = 90
 
 [node name="IceSickle3" parent="Hazards" index="2" instance=ExtResource( 2 )]
-position = Vector2( 111, -132 )
+position = Vector2( 141, -132 )
 rotation_d = 90
 
 [node name="IceSickle4" parent="Hazards" index="3" instance=ExtResource( 2 )]
-position = Vector2( 132, -17 )
+position = Vector2( 173, -17 )
 rotation_d = 90
 
 [node name="IceSickle5" parent="Hazards" index="4" instance=ExtResource( 2 )]
-position = Vector2( 45, -36 )
+position = Vector2( 56, -58 )
 rotation_d = 90
 
 [node name="IceSickle6" parent="Hazards" index="5" instance=ExtResource( 2 )]
-position = Vector2( 45, -163 )
+position = Vector2( 85, -185 )
 rotation_d = 90
 
 [node name="IceSickle7" parent="Hazards" index="6" instance=ExtResource( 2 )]
-position = Vector2( 130, -162 )
+position = Vector2( 170, -184 )
 rotation_d = 90
 
 [node name="IceSickle8" parent="Hazards" index="7" instance=ExtResource( 2 )]
-position = Vector2( 131, -36 )
+position = Vector2( 142, -58 )
 rotation_d = 90

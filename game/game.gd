@@ -56,6 +56,8 @@ func _hide_overlay_items() -> void:
 func _input(event):
 	if event.is_action_released("ui_cancel"):
 		get_tree().change_scene("res://game/menu/title_menu.tscn")
+	if event.is_action_released("mute"):
+		background_music._set_playing(!background_music.playing)
 	if self.is_game_over:
 		if event.is_action_released("jump"):
 			self._restart_game()
