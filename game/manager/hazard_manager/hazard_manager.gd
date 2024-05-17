@@ -74,9 +74,10 @@ func spawn_hazard(sec: int) -> void:
 		4:
 			_spawn_wave(p_SWTopRight, 100)
 		6:
-			_spawn_wave(p_SWLeftBottom, 100)
+			_spawn_wave(p_SWLeftBottom, 110)
 		8:
-			_spawn_wave(p_SWLeftAll, 100)
+			pass
+			#_spawn_wave(p_SWLeftAll, 130)
 		10:
 			_spawn_wave(p_SWLeftTop, 100)
 		12:
@@ -85,16 +86,16 @@ func spawn_hazard(sec: int) -> void:
 			_stop_timers()
 		16:
 			start_timers()
-			_spawn_wave(p_SWTopRight, 100)
-			_spawn_wave(p_SWLeftBottom, 100)
+			_spawn_wave(p_SWTopRight, 120)
+			#_spawn_wave(p_SWLeftBottom, 100)
 		18:
 			_spawn_wave(p_SWTopAll, 120)
 		20:
 			_spawn_wave(p_SWTopLeft, 150)
 		22:
-			_spawn_wave(p_SWLeftBottom, 180)
+			pass
 		24:
-			_spawn_wave(p_SWLeftBottom, 175)
+			_spawn_wave(p_SWLeftBottom, 120)
 		26:
 			_spawn_wave(p_SWTopAll, 110)
 		28:
@@ -107,24 +108,24 @@ func spawn_hazard(sec: int) -> void:
 			pass
 			#_spawn_wave(p_SWTopAll, 90)
 		35:
-			_spawn_wave(p_SWTopAll, 100)
+			_spawn_wave(p_SWTopAll, 130)
 
 		36:
 			_stop_timers()
 		38:
 			start_timers()
-			_spawn_wave(p_SWLeftBottom, 90)
+			_spawn_wave(p_SWLeftBottom, 120)
 		40:
-			_spawn_wave(p_SWRightTop, 100)
-		42:
 			pass
+		42:
+			_spawn_wave(p_SWRightTop, 100)
 		44:
-			_spawn_wave(p_SWRightBottom)
+			pass
 		46:
 			pass
 			
 		48:
-			pass
+			_spawn_wave(p_SWRightBottom)
 		50:
 			pass
 		52:

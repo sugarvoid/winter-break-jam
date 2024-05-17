@@ -6,17 +6,17 @@
 [node name="SickleWaveLeftTop" instance=ExtResource( 2 )]
 
 [node name="IceSickle" parent="Hazards" index="0" instance=ExtResource( 1 )]
-position = Vector2( -10, 39 )
+position = Vector2( -266, 75 )
 rotation_d = 0
 
 [node name="IceSickle2" parent="Hazards" index="1" instance=ExtResource( 1 )]
-position = Vector2( -184, 76 )
+position = Vector2( -177, 74 )
 rotation_d = 0
 
 [node name="IceSickle3" parent="Hazards" index="2" instance=ExtResource( 1 )]
-position = Vector2( -104, 75 )
+position = Vector2( -93, 76 )
 rotation_d = 0
 
 [node name="IceSickle4" parent="Hazards" index="3" instance=ExtResource( 1 )]
-position = Vector2( -11, 98 )
+position = Vector2( -11, 75 )
 rotation_d = 0

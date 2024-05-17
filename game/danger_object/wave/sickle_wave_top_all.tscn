@@ -9,41 +9,25 @@ __meta__ = {
 }
 
 [node name="IceSickle2" parent="Hazards" index="0" instance=ExtResource( 2 )]
-position = Vector2( 96, -124 )
+position = Vector2( 59, -99 )
 rotation_d = 90
 
 [node name="IceSickle6" parent="Hazards" index="1" instance=ExtResource( 2 )]
-position = Vector2( 122, -12 )
+position = Vector2( 117, -47 )
 rotation_d = 90
 
 [node name="IceSickle19" parent="Hazards" index="2" instance=ExtResource( 2 )]
-position = Vector2( 122, -193 )
+position = Vector2( 119, -155 )
 rotation_d = 90
 
 [node name="IceSickle20" parent="Hazards" index="3" instance=ExtResource( 2 )]
-position = Vector2( 182, -129 )
+position = Vector2( 182, -97 )
 rotation_d = 90
 
-[node name="IceSickle24" parent="Hazards" index="4" instance=ExtResource( 2 )]
-position = Vector2( 51, -271 )
+[node name="IceSickle21" parent="Hazards" index="4" instance=ExtResource( 2 )]
+position = Vector2( 60, -13 )
 rotation_d = 90
 
-[node name="IceSickle25" parent="Hazards" index="5" instance=ExtResource( 2 )]
-position = Vector2( 138, -270 )
-rotation_d = 90
-
-[node name="IceSickle21" parent="Hazards" index="6" instance=ExtResource( 2 )]
-position = Vector2( 41, -13 )
-rotation_d = 90
-
-[node name="IceSickle22" parent="Hazards" index="7" instance=ExtResource( 2 )]
-position = Vector2( 198, -14 )
-rotation_d = 90
-
-[node name="IceSickle23" parent="Hazards" index="8" instance=ExtResource( 2 )]
-position = Vector2( 37, -193 )
-rotation_d = 90
-
-[node name="IceSickle29" parent="Hazards" index="9" instance=ExtResource( 2 )]
-position = Vector2( 222, -270 )
+[node name="IceSickle22" parent="Hazards" index="5" instance=ExtResource( 2 )]
+position = Vector2( 183, -14 )
 rotation_d = 90

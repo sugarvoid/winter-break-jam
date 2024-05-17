@@ -156,7 +156,6 @@ func better_is_on_floor() -> bool:
 	return arr.has(true)
 
 func _start_standing_still_timer() -> void:
-	print("starting timmer")
 	self.standing_still_timer.start(self.idle_time_max)
 
 func reset_jumps() -> void:
@@ -164,20 +163,15 @@ func reset_jumps() -> void:
 
 func _on_frozen() -> void:
 	if self.is_alive and self.is_freezable:
-		print("player froze")
 		take_damage()
 
 func take_damage():
 	if self.is_alive:
-		print('brrrr')
 		self.is_alive = false
 		emit_signal("is_dying")
 		_play_death_animation()
-		print("dying")
 
 func _play_death_animation() -> void:
-	print('player is dead')
-	# Play animation
 	animated_sprite.play("dying")
 
 func reset_player() -> void:
@@ -194,4 +188,3 @@ func _animation_finished():
 	if animated_sprite.animation == "dying":
 		emit_signal("on_death", self.global_position)
 		####  self.queue_free()
-		
