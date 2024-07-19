@@ -2,7 +2,7 @@ extends Node2D
 
 const START_DELAY: int = 3
 const FALLING_Y_POS: int = 132
-const GAME_LENGTH: int = 60
+const GAME_LENGTH: int = 30
 
 
 onready var player: Player = get_node("Player")

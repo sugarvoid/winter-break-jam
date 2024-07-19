@@ -97,46 +97,12 @@ func spawn_hazard(sec: int) -> void:
 		24:
 			_spawn_wave(p_SWLeftBottom, 120)
 		26:
-			_spawn_wave(p_SWTopAll, 110)
-		28:
-			_spawn_wave(p_SWRightTop, 80)
-		30:
-			_spawn_wave(p_SWLeftAll, 150)
-		32:
-			_spawn_wave(p_SWTopAll, 100)
-		34:
-			pass
-			#_spawn_wave(p_SWTopAll, 90)
-		35:
-			_spawn_wave(p_SWTopAll, 130)
-
-		36:
-			_stop_timers()
-		38:
-			start_timers()
-			_spawn_wave(p_SWLeftBottom, 120)
-		40:
-			pass
-		42:
-			_spawn_wave(p_SWRightTop, 100)
-		44:
-			pass
-		46:
-			pass
-			
-		48:
-			_spawn_wave(p_SWRightBottom)
-		50:
-			pass
-		52:
-			pass
-		54:
-			pass
-		56:
 			_spawn_wave(p_SWFinal)
-		58:
+		28:
 			pass
-		60:
+		30:
 			# End of game
+			for s in hazard_container.get_children():
+				self.hazard_container.call_deferred("remove_child", s)
 			_stop_timers()
 			emit_signal("player_finished")

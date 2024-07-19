@@ -84,8 +84,9 @@ margin_left = 76.0
 margin_top = 46.0
 margin_right = 153.0
 margin_bottom = 60.0
+rect_scale = Vector2( 0.9, 0.9 )
 custom_fonts/font = SubResource( 2 )
-text = "Press [jump]"
+text = "Jump to Retry"
 
 [node name="LblWin" type="Label" parent="OverLay"]
 visible = false
@@ -97,9 +98,9 @@ custom_fonts/font = SubResource( 3 )
 text = "You Win"
 
 [node name="DEBUG" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Label" type="Label" parent="DEBUG"]
-visible = false
 margin_left = 154.0
 margin_top = 2.0
 margin_right = 201.0
@@ -128,5 +129,5 @@ margin_bottom = 38.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_colors/font_color = Color( 0.505882, 0.811765, 0.913725, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "60"
+text = "XX"
 align = 1
