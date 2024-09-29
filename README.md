@@ -1,4 +1,4 @@
-# winter-break-jam :snowman:
+# Sickle Dodoge (Godot) :snowman:
 
 My submission for the [Winter Break Bullet Hell Jam](https://itch.io/jam/2023-winter-bullet-hell-jam) 
 
